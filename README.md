@@ -40,3 +40,5 @@
 
 ## Download 下载
 
+GitHub: https://github.com/asd123pwj/QuickRename/releases
+
