@@ -1,3 +1,6 @@
+> [Github](https://github.com/asd123pwj/QuickRename)
+>
+> [Blog](https://mwhls.top/3944.html)
 ## Usage 用法
 
 #### One file rename 单文件重命名
@@ -6,7 +9,7 @@
   点击文件1与文件2以重命名文件2：
 
 
-```
+```c
     Quick rename one file for windows.
     Click file1 and file2 to rename file2 as follow:
     点击文件1与文件2以重命名文件2：
@@ -24,7 +27,7 @@
 - Copy the path of dir1 and dir2 to rename files in dir2 as follow:
   复制路径1与路径2以重命名路径2内文件：
 
-```
+```c
     Quick rename files in directory for windows.
     Copy the path of dir1 and dir2 to rename files in dir2 as follow:
     复制路径1与路径2以重命名路径2内文件：
@@ -41,4 +44,3 @@
 ## Download 下载
 
 GitHub: https://github.com/asd123pwj/QuickRename/releases
-
