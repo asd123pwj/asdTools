@@ -2,7 +2,8 @@
 >
 > [Blog](https://mwhls.top/3944.html)
 
-[ReadMe in English (By GPT)](README_EN.md)
+[ReadMe (中文)](Readme.md)
+[ReadMe (English by GPT)](Readme_en.md)
 
 # AsdTools
 
@@ -10,11 +11,20 @@
 
 - 第一次用 Git 来管理仓库，可能有点问题，影响到大家的话，请发 issue。
 
+## 功能介绍
+
+#### 右键菜单选项
+
+- 说明见 [Readme](Tools2ContextMenu\Readme.md)。
+
+1. ImageResizer_256x144：调整图像至256x144分辨率。
+
 ## 更新历史
 
 #### 重构
 
 - 2023/05/03 - V0.0.1: 测试推送。
+- 2023/05/05 - V0.0.2: 实现图像快捷调整至256x144，可添加至右键菜单。
 
 #### 旧版代码
 

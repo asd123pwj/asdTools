@@ -2,19 +2,31 @@
 >
 > [Blog](https://mwhls.top/3944.html)
 
+[ReadMe (中文)](Readme.md)
+[ReadMe (English by LLMs)](Readme_en.md)
+
 # AsdTools
 
-#### A few notes
+#### Some notes
 
-- This is my first time using Git to manage a repository, so there may be some issues. If you encounter any problems, please open an issue.
+- This is the first time I'm using Git to manage a repository, so there might be some issues. If it affects you, please create an issue.
 
-## Update History
+## Features
 
-#### Refactor
+#### Context menu items
 
-- 2023/05/03 - V0.0.1: Testing push.
+- See [Readme](Tools2ContextMenu\Readme.md) for details.
 
-#### Old Code
+1. ImageResizer_256x144: Resize images to 256x144 resolution.
 
-- The old code can be found in the branch: [asd123pwj/asdTools at ShitCode_deprecated](https://github.com/asd123pwj/asdTools/tree/ShitCode_deprecated)
-- I wrote thirty-two files, but they were often written for temporary purposes and had poor readability due to time constraints. They also had very few comments. Therefore, they were all deleted, and a new version was refactored with the help of GPT for comments.
+## Update history
+
+#### Refactoring
+
+- 2023/05/03 - V0.0.1: Test push.
+- 2023/05/05 - V0.0.2: Add shortcut to quickly resize images to 256x144 and add to right-click context menu.
+
+#### Old code
+
+- Old code can be found in branch: [asd123pwj/asdTools at ShitCode_deprecated](https://github.com/asd123pwj/asdTools/tree/ShitCode_deprecated)
+- I wrote 32 files, but they were often written temporarily for a specific purpose and had poor readability due to time constraints and lack of comments. Therefore, I deleted them and refactored the new version, and GPT will help with the comments.

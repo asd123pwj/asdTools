@@ -1,10 +1,9 @@
 import os
-from BaseClasses.BaseModel import BaseModel
 
 
-class IOBase(BaseModel):
+class IOBase():
     def __init__(self, **kwargs) -> None:
-        super().__init__(**kwargs)
+        pass
 
     @staticmethod
     def get_path_from_dir(path:str, 

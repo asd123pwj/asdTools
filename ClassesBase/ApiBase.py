@@ -1,4 +1,4 @@
-from BaseClasses.BaseModel import BaseModel
+from ClassesBase.BaseModel import BaseModel
 
 
 class ApiBase(BaseModel):
