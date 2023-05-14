@@ -1,23 +1,36 @@
+![asdTools](asdTools.png "asdTools")
+
 > [Github](https://github.com/asd123pwj/QuickRename)
 >
 > [Blog](https://mwhls.top/3944.html)
 
 [ReadMe (中文)](Readme.md)
-[ReadMe (English by GPT)](Readme_en.md)
+[ReadMe (English by LLMs)](Readme_en.md)
 
 # AsdTools
 
-#### 一点说明
+[toc]
 
-- 第一次用 Git 来管理仓库，可能有点问题，影响到大家的话，请发 issue。
+#### 使用方式
+
+- 方式1：安装以使用
+
+  - 下载本仓库并解压。
+  - 在解压目录执行 `pip install .`
+  - 在 asdTools/Tools 路径下选择并使用工具。
+- 方式2：仅调用
+
+  - 下载本仓库并解压。
+  - 运行 `pip install -r requirements.txt`
+  - 在 asdTools/Tools 路径下选择并使用工具。
 
 ## 功能介绍
 
-#### 右键菜单选项
+- 具体介绍见 [Readme](asdTools/Tools/Readme.md)。
 
-- 说明见 [Readme](Tools2ContextMenu\Readme.md)。
-
-1. ImageResizer_256x144：调整图像至256x144分辨率。
+1. ImageResizer_256x144 - 缩放图片至256x144。
+2. GPUMonitor - 获取当前可用GPU的id。
+3. Chat_LLMs - 调用 ChatGLM API 进行聊天。
 
 ## 更新历史
 
@@ -25,6 +38,7 @@
 
 - 2023/05/03 - V0.0.1: 测试推送。
 - 2023/05/05 - V0.0.2: 实现图像快捷调整至256x144，可添加至右键菜单。
+- 2023/05/14 - V0.0.3: 实现GPU监控，LLMs聊天，增加看板娘，支持安装。
 
 #### 旧版代码
 
