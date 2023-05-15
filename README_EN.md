@@ -38,7 +38,7 @@
 
 - 2023/05/03 - V0.0.1: Test push.
 - 2023/05/05 - V0.0.2: Implement image quick adjustment to 256x144 and add to the right-click menu.
-- 2023/05/14 - V0.0.3: Implement GPU monitoring, LLMs chatting, add live2d waifu, and support installation.
+- 2023/05/14 - V0.0.3: Implement GPU monitoring, LLMs chatting, add poster girl, and support installation.
 
 #### Old Version Code
 
