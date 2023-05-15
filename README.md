@@ -1,8 +1,8 @@
 ![asdTools](asdTools.png "asdTools")
 
-> [Github](https://github.com/asd123pwj/QuickRename)
+> [Github](https://github.com/asd123pwj/asdTools)
 >
-> [Blog](https://mwhls.top/3944.html)
+> [Blog](https://mwhls.top/project/asdtools)
 
 [ReadMe (中文)](Readme.md)
 [ReadMe (English by LLMs)](Readme_en.md)

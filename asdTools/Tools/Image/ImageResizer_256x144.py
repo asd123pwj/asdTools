@@ -2,20 +2,36 @@ from asdTools.Classes.Image.ImageBase import ImageBase
 import sys
 
 
+class ResizeAndSave(ImageBase):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
+
+    def __call__(self, 
+                 img_path:str, 
+                 size:tuple=(256, 144), 
+                 output_dir:str="", 
+                 output_file:str="") -> str:
+        img = self.read_img(img_path)
+        img_resize = self.resize_image(img)
+        if output_dir == "":
+            output_dir = self.get_dir_of_file(img_path)
+            output_dir = self.join(output_dir, f"{size[0]}x{size[1]}")
+        if output_file == "":
+            output_file = self.get_name_of_file(img_path, True)
+            output_file = self.add_suffix(output_file, "_resized")
+        img_resize_path = self.save_image(img_resize, output_dir, output_file)
+        return img_resize_path
+
+
+
 if __name__ == "__main__":
     try:
         img_path = sys.argv[1]
         img_path = img_path.strip('"')
         size = (256, 144)
-        Resizer = ImageBase(name=f"ImageResizer_{size[0]}x{size[1]}")
+        Resizer = ResizeAndSave(name=f"ImageResizer_{size[0]}x{size[1]}")
 
-        output_dir = Resizer.get_dir_of_file(img_path)
-        output_dir = Resizer.join(output_dir, f"{size[0]}x{size[1]}")
-        output_file = Resizer.get_name_of_file(img_path, True)
-        output_file = Resizer.add_suffix(output_file, "_resized")
-        output_path = Resizer.join(output_dir, output_file)
-
-        output_path = Resizer.resize_image(img_path, size, output_path=output_path)
+        output_path = Resizer(img_path, size)
         # if you need log, use the following code.
         # Resizer.log(f"Resized {img_path} to {size[0]}x{size[1]}, saved to {output_path}.")
     except Exception as e:
