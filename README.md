@@ -28,9 +28,10 @@
 
 - 具体介绍见 [Readme](asdTools/Tools/Readme.md)。
 
-1. ImageResizer_256x144 - 缩放图片至256x144。
+1. ImageResizer_256x144 - 调整图片的分辨率至256x144，提供了Windows右键菜单快捷方式。
 2. GPUMonitor - 获取当前可用GPU的id。
-3. Chat_LLMs - 调用 ChatGLM API 进行聊天。
+3. Chat_LLMs - 用于和LLMs聊天，示例为与ChatGLM本地部署的API通信。
+4. ConvertGT2MMSeg - 将GT图片转为MMSegmentation所需的图片格式。支持处理RGB图与灰度图。
 
 ## 更新历史
 
@@ -39,6 +40,7 @@
 - 2023/05/03 - V0.0.1: 测试推送。
 - 2023/05/05 - V0.0.2: 实现图像快捷调整至256x144，可添加至右键菜单。
 - 2023/05/14 - V0.0.3: 实现GPU监控，LLMs聊天，增加看板娘，支持安装。
+- 2023/05/17 - V0.0.4: 实现GT转MMSeg格式。
 
 #### 旧版代码
 

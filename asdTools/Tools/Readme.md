@@ -28,9 +28,14 @@
 #### API 工具支持
 
 1. Chat_LLMs - 即开即用
-   - 调用 ChatGLM 本地 API 进行聊天。
+   - 用于和LLMs聊天，示例为与ChatGLM本地部署的API通信。
+
+#### Datasets 工具支持
+
+1. ConvertGT2MMSeg - 即开即用
+   * 将GT图片转为MMSegmentation所需的图片格式。支持处理RGB图与灰度图。
 
 #### Image 工具支持
 
 1. ImageResizer_256x144 - 快捷方式
-   - 缩放图像至256x144。
+   - 调整图片的分辨率至256x144，提供了Windows右键菜单快捷方式。

@@ -6,6 +6,39 @@ class IOBase():
     def __init__(self, **kwargs) -> None:
         pass
 
+    def add_suffix(self, path:str, suffix:str="_suffix") -> str:
+        """
+        Add suffix to the directory or file name in the given path and return the new path.
+
+        Args:
+        - path (str): Path to the directory or file.
+        - suffix (str, optional): Suffix to add to the file or directory name. Default is "_suffix".
+
+        Returns:
+        - str: Path with added suffix.
+
+        Raises:
+        - None
+
+        Example:
+        >>> add_suffix('/path/to/directory', '_new')
+        '/path/to/directory_new'
+        >>> add_suffix('/path/to/file.txt', '_new')
+        '/path/to/file_new.txt'
+        """
+        if os.path.isdir(path):
+            dir_root, dir_name = os.path.split(path)
+            dir_name += suffix
+            path = os.path.join(dir_root, dir_name)
+        elif os.path.isfile(path):
+            file_root, file_name = os.path.split(path)
+            file_name_root, file_name_ext = os.path.splitext(file_name)
+            file_name = file_name_root + suffix + file_name_ext
+            path = os.path.join(file_root, file_name)
+        else:
+            path += suffix
+        return path
+
     @staticmethod
     def get_paths_from_dir(path:str, 
                           type:str="file", 
@@ -82,39 +115,9 @@ class IOBase():
         file, _ = os.path.splitext(file_name)
         return file
 
-    @staticmethod
-    def add_suffix(path:str, suffix:str="_suffix") -> str:
-        """
-        Add suffix to the directory or file name in the given path and return the new path.
-
-        Args:
-        - path (str): Path to the directory or file.
-        - suffix (str, optional): Suffix to add to the file or directory name. Default is "_suffix".
-
-        Returns:
-        - str: Path with added suffix.
-
-        Raises:
-        - None
-
-        Example:
-        >>> add_suffix('/path/to/directory', '_new')
-        '/path/to/directory_new'
-        >>> add_suffix('/path/to/file.txt', '_new')
-        '/path/to/file_new.txt'
-        """
-        if os.path.isdir(path):
-            dir_root, dir_name = os.path.split(path)
-            dir_name += suffix
-            path = os.path.join(dir_root, dir_name)
-        elif os.path.isfile(path):
-            file_root, file_name = os.path.split(path)
-            file_name_root, file_name_ext = os.path.splitext(file_name)
-            file_name = file_name_root + suffix + file_name_ext
-            path = os.path.join(file_root, file_name)
-        else:
-            path += suffix
-        return path
+    def log(**kwargs):
+        # wait BaseModel to rewrite
+        pass
 
     @staticmethod
     def join(*arg:str) -> str:
@@ -152,14 +155,20 @@ class IOBase():
         log_dir = self.get_dir_of_file(log_path)
         self.mkdir(log_dir)
         with open(log_path, mode, encoding='utf8') as f:
-            if isinstance(content, list):
-                f.write("".join(content))
-            elif isinstance(content, str):
-                f.write(content)
-            elif isinstance(content, dict):
-                json.dump(content, f, indent=2, sort_keys=True, ensure_ascii=False)
-            else:
-                f.write(str(content))
+            try:
+                if isinstance(content, list):
+                    f.write("".join(content))
+                elif isinstance(content, str):
+                    f.write(content)
+                elif isinstance(content, dict):
+                    json.dump(content, f, indent=2, sort_keys=True, ensure_ascii=False)
+                else:
+                    content_new = str(content)
+                    f.write(content_new)
+            except:
+                content_new = str(content)
+                f.write(content_new)
+                self.log(f"Did not match to the appropriate type, forced to write to the file in {log_path}, please check", level="warning")
         return log_path
 
     def read_json(self, path:str):

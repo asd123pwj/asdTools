@@ -40,7 +40,7 @@ class GPUMonitor(BaseModel):
         self.capacity_thres = capacity_thres
         self.output_type = output_type
         self.time_cooldown = time_cooldown
-        self.gpu_log_path = self.convert_path_to_log_dir(gpu_log_file)
+        self.gpu_log_path = self.generate_output_path(output_file=gpu_log_file)
         if not self.exists(self.gpu_log_path):
             pynvml.nvmlInit()
             self.device_count = pynvml.nvmlDeviceGetCount()

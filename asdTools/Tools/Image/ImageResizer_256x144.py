@@ -3,6 +3,10 @@ import sys
 
 
 class ResizeAndSave(ImageBase):
+    """
+    调整图片的分辨率至256x144，提供了Windows右键菜单快捷方式。
+    Resize the resolution of the image to 256x144 and provides a Windows right-click menu shortcut.
+    """
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
 
@@ -11,6 +15,14 @@ class ResizeAndSave(ImageBase):
                  size:tuple=(256, 144), 
                  output_dir:str="", 
                  output_file:str="") -> str:
+        img_resize_path = self.run(img_path, size, output_dir, output_file)
+        return img_resize_path
+
+    def run(self, 
+            img_path:str, 
+            size:tuple=(256, 144), 
+            output_dir:str="", 
+            output_file:str="") -> str:
         img = self.read_img(img_path)
         img_resize = self.resize_image(img)
         if output_dir == "":

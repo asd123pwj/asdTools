@@ -26,9 +26,14 @@
 #### API Tool Support
 
 1. Chat_LLMs - Out-of-the-box
-   * Call the ChatGLM local API for chatting.
+   * Used for chatting with LLMs, with an example of communicating with the locally deployed ChatGLM API.
+
+#### Datasets Tool Support
+
+1. ConvertGT2MMSeg - Out-of-the-box
+   * Convert GT images to the image format required by MMSegmentation. It can handle RGB images and grayscale images.
 
 #### Image Tool Support
 
 1. ImageResizer_256x144 - Shortcut
-   * Scale images to 256x144.
+   * Resize the resolution of the image to 256x144 and provides a Windows right-click menu shortcut.

@@ -139,7 +139,7 @@ class LLMsAPI(ApiBase):
         response = self.post(self.url, self.chat_data, headers=self.headers)
         
         if response.status_code == 200:
-            result = self.convert_str2json(response.text)
+            result = self.convert_val_adaptive(response.text)
             reply = result["response"]
             self.chat_data["history"] = result["history"]
 

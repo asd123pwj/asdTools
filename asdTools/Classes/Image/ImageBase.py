@@ -7,36 +7,72 @@ class ImageBase(BaseModel):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
 
-    def resize_image(self, 
-                     img, 
-                     size:tuple=(224, 224)):
-        if isinstance(img, str):
-            img = self.read_img(img)
-        img.thumbnail(size)
-        return img
-        # with Image.open(path) as img:
-        #     img.thumbnail(size)
-        #     output_dir = self.get_dir_of_file(output_path)
-        #     self.mkdir(output_dir)
-        #     img.save(output_path)
-        # return output_path
-
-    def save_image(self, img, output_dir:str="", output_file:str="xxx_resized.png") -> str:
-        if isinstance(img, str):
-            img = self.read_img(img)
-        if output_dir == "":
-            output_dir = self.log_dir
-        output_path = self.join(output_dir, output_file)
-        img.save(output_path)
-        return output_path
-
-    @staticmethod
-    def read_img(path:str):
-        with Image.open(path) as img:
-            return img
-
-    @staticmethod
-    def convert_img_to_array(img):
+    def convert_img_to_array(self, img:Image.Image) -> np.ndarray:
         img_array = np.array(img)
         return img_array
     
+    def count_img_color(self, img:Image.Image) -> set:
+        img = self.read_img(img)
+        unique_color = img.getcolors(img.size[0] * img.size[1])
+        return unique_color
+
+    def count_imgs_color(self, imgs:list) -> dict:
+        unique_res = {}
+        for img in imgs:
+            unique_img = self.count_img_color(img)
+            for color in unique_img:
+                self.count_in_dict(unique_res, color[1], color[0])
+        return unique_res
+
+    def draw_arr(self, arr:np.ndarray):
+        img = Image.fromarray(arr.astype(np.uint8))
+        return img
+
+    def get_img_info(self, img_path:str):
+        img = self.read_img(img_path)
+        img_array = self.read_img(img, output_type="array")
+        img_info = {}
+        img_info["path"] = str(img_path)
+        img_info["shape"] = img_array.shape
+        return img_info
+    
+    def generate_image(self, mode:str, size:tuple, **kwargs):
+        img = Image.new(mode, size, **kwargs)
+        return img
+
+    def resize_image(self, 
+                     img:Image.Image, 
+                     size:tuple=(224, 224)) -> Image.Image:
+        img = self.read_img(img)
+        img.thumbnail(size)
+        return img
+
+    def read_img(self, path, output_type="Image"):
+        if isinstance(path, str):
+            with Image.open(path) as f:
+                img = f
+                img.load()
+        elif isinstance(path, Image.Image):
+            img = path
+        
+        if output_type == "Image":
+            return img
+        elif output_type == "array":
+            img_array = self.convert_img_to_array(img)
+            return img_array
+
+    def save_image(self, img:Image.Image, output_dir:str="", output_file:str="xxx_resized.png") -> str:
+        img = self.read_img(img)
+        output_path = self.generate_output_path(output_dir, output_file)
+        img.save(output_path)
+        return output_path
+
+
+
+if __name__ == "__main__":
+    img_dir = r"F:\0_DATA\1_DATA\Datasets\VITL\seed0\train\gt"
+    img_dir = r"F:\0_DATA\1_DATA\Datasets\VITL\seed0\train\vl"
+    img_analyzer = ImageBase()
+    imgs_path = img_analyzer.get_paths_from_dir(img_dir)
+    unique_color = img_analyzer.count_imgs_color(imgs_path)
+    pass
