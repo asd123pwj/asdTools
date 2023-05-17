@@ -1,10 +1,11 @@
+from asdTools.Classes.Base.RewriteBase import RewriteBase
 import sys
 import os
 
 
-class CommandBase():
+class CommandBase(RewriteBase):
     def __init__(self, **kwargs) -> None:
-        pass
+        super().__init__(**kwargs)
 
     @staticmethod
     def check_command(command:str) -> bool:

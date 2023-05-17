@@ -32,6 +32,8 @@
 
 1. ConvertGT2MMSeg - Out-of-the-box
    * Convert GT images to the image format required by MMSegmentation. It can handle RGB images and grayscale images.
+2. RandomDatasetSplitter_SemanticSegmentation - Out-of-the-box
+   * Randomly split two folders with the same internal file names, such as RGB images and GT (Ground Truth) images in semantic segmentation.
 
 #### Image Tool Support
 

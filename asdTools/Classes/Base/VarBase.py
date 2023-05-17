@@ -1,32 +1,16 @@
+from asdTools.Classes.Base.RewriteBase import RewriteBase
 import numpy as np
+import operator
+import random
 import json
+import math
 import copy
 import ast
 
 
-class VarBase():
-    def __init__(self, **kwargs):
-        pass
-
-    def parse_value(self, value):
-        # Thanks to ChatGPT
-        try:
-            return int(value)
-        except ValueError:
-            pass
-        try:
-            return float(value)
-        except ValueError:
-            pass
-        try:
-            return ast.literal_eval(value)
-        except (ValueError, TypeError):
-            pass
-        try:
-            return ast.literal_eval(value)
-        except (ValueError, TypeError):
-            pass
-        return value
+class VarBase(RewriteBase):
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)
 
     def convert_val_adaptive(self, strr:str) -> dict:  
         # Thanks to ChatGPT      
@@ -66,10 +50,26 @@ class VarBase():
             dictt[key] = value
             return False
 
+    def check_equal(self, val1, val2) -> bool:
+        if isinstance(val1, list):
+            if not isinstance(val1, list):
+                return False
+            val1_sort = sorted(val1)
+            val2_sort = sorted(val2)
+            isEqual = val1_sort == val2_sort
+            return isEqual
+
     def get_dict_value(self, dictt:dict, key:str, default_value):
         if key in dictt:
             value = dictt[key]
         else:
+            value = default_value
+        return value
+
+    def get_list_value(self, listt:list, index:int, default_value):
+        try:
+            value = listt[index]
+        except:
             value = default_value
         return value
 
@@ -105,6 +105,13 @@ class VarBase():
             dic_res[k2] = value
         return dic_res
 
+    def merge_2list_to_dcit(self, key_list, val_list, empty_value="EMPTY VALUE"):
+        res = {}
+        for i, key in enumerate(key_list):
+            value = self.get_list_value(val_list, i, empty_value)
+            res[key] = value
+        return res
+
     def merge_value(self, val1, val2):
         if isinstance(val1, int):
             return val1 + val2
@@ -114,3 +121,43 @@ class VarBase():
             return val1 + val2
         elif isinstance(val1, list):
             return val1.extend(val2)
+
+    def parse_value(self, value):
+        # Thanks to ChatGPT
+        try:
+            return int(value)
+        except ValueError:
+            pass
+        try:
+            return float(value)
+        except ValueError:
+            pass
+        try:
+            return ast.literal_eval(value)
+        except (ValueError, TypeError):
+            pass
+        try:
+            return ast.literal_eval(value)
+        except (ValueError, TypeError):
+            pass
+        return value
+
+    def split_list(self, listt:list, ratios:tuple, isRandom:bool=True):
+        listt_copy = listt.copy()
+        res = []
+        if isRandom:
+            random.shuffle(listt_copy)
+        if isinstance(ratios, float):
+            ratios = (ratios)
+        start = 0
+        ratio_total = 0
+        for ratio in ratios:
+            ratio_total += ratio
+            if ratio_total >= 0.99999:
+                res.append(listt_copy[start:])
+                break
+            else:
+                split_len = math.ceil(len(listt) * ratio)
+                res.append(listt_copy[start:start+split_len])
+                start += split_len
+        return res

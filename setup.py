@@ -9,7 +9,7 @@ with open(os.path.join(os.path.dirname(__file__), "LICENSE"), "r") as f:
 
 setup(
     name='asdTools',
-    version='0.0.4',
+    version='0.0.5',
     description='Simple tools for simple goals.',
     url='https://github.com/asd123pwj/asdTools',
     author='MWHLS',
@@ -19,8 +19,9 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     keywords='MWHLS library',
-    packages=find_packages(include=['Classes.*']),
+    packages=find_packages(include=['asdTools.Classes.*']),
     install_requires=[
+        'nvidia-ml-py',
         'python-docx',
         'requests',
         'Pillow',

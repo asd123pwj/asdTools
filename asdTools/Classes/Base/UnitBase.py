@@ -1,6 +1,9 @@
-class UnitBase():
+from asdTools.Classes.Base.RewriteBase import RewriteBase
+
+
+class UnitBase(RewriteBase):
     def __init__(self, **kwargs) -> None:
-        pass
+        super().__init__(**kwargs)
 
     @staticmethod
     def convert_storage_units(size:float, input_unit:str="B", output_unit:str="GB"):

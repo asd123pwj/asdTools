@@ -1,10 +1,12 @@
+from asdTools.Classes.Base.RewriteBase import RewriteBase
+import shutil
 import json
 import os
 
 
-class IOBase():
+class IOBase(RewriteBase):
     def __init__(self, **kwargs) -> None:
-        pass
+        super().__init__(**kwargs)
 
     def add_suffix(self, path:str, suffix:str="_suffix") -> str:
         """
@@ -39,8 +41,7 @@ class IOBase():
             path += suffix
         return path
 
-    @staticmethod
-    def get_paths_from_dir(path:str, 
+    def get_paths_from_dir(self, path:str, 
                           type:str="file", 
                           needAbsPath:bool=False, 
                           keepExt:bool=True, 
@@ -78,8 +79,7 @@ class IOBase():
                 break
         return paths
 
-    @staticmethod
-    def get_dir_of_file(path:str, lastDir:bool=False) -> str:
+    def get_dir_of_file(self, path:str, lastDir:bool=False) -> str:
         """
         Returns the directory of the given file path.
 
@@ -96,8 +96,7 @@ class IOBase():
             dir_name = os.path.basename(dir_name)
         return dir_name
 
-    @staticmethod
-    def get_name_of_file(path:str, keepExt:bool=False) -> str:
+    def get_name_of_file(self, path:str, keepExt:bool=False) -> str:
         """
         Returns the name of the given file path.
 
@@ -115,12 +114,14 @@ class IOBase():
         file, _ = os.path.splitext(file_name)
         return file
 
-    def log(**kwargs):
-        # wait BaseModel to rewrite
-        pass
+    def get_name_of_files(self, files:list, keepExt:bool=False) -> list:
+        res = []
+        for file in files:
+            file_name = self.get_name_of_file(file, keepExt)
+            res.append(file_name)
+        return res
 
-    @staticmethod
-    def join(*arg:str) -> str:
+    def join(self, *arg:str) -> str:
         """
         Join one or more path components, regardless of operating system, and return the combined path.
 
@@ -136,15 +137,21 @@ class IOBase():
         """
         return os.path.join(*arg)
     
-    @staticmethod
-    def mkdir(path:str) -> bool:
+    def mkdir(self, path:str) -> bool:
         if not os.path.exists(path):
             os.makedirs(path)
             return True
         return False
 
-    @staticmethod
-    def exists(path):
+    def move(self, src:str, dest:str):
+        shutil.move(src, dest)
+
+    def copy(self, src:str, dest:str):
+        dir_dest = self.get_dir_of_file(dest)
+        self.mkdir(dir_dest)
+        shutil.copy(src, dest)
+
+    def exists(self, path:str):
         isExists = os.path.exists(path)
         return isExists
 
@@ -168,7 +175,7 @@ class IOBase():
             except:
                 content_new = str(content)
                 f.write(content_new)
-                self.log(f"Did not match to the appropriate type, forced to write to the file in {log_path}, please check", level="warning")
+                self.warning(f"Did not match to the appropriate type, forced to write to the file in {log_path}, please check")
         return log_path
 
     def read_json(self, path:str):
@@ -176,8 +183,7 @@ class IOBase():
             content = json.load(f)
         return content
 
-    @staticmethod
-    def check_file(path:str) -> bool:
+    def check_file(self, path:str) -> bool:
         """
         Checks if the given path points to a file.
 
@@ -192,8 +198,7 @@ class IOBase():
             return True
         return False
         
-    @staticmethod
-    def check_dir(path:str) -> bool:
+    def check_dir(self, path:str) -> bool:
         """
         Checks if the given path points to a directory.
 
@@ -208,8 +213,7 @@ class IOBase():
             return True
         return False
 
-    @staticmethod
-    def check_path(path:str) -> str:
+    def check_path(self, path:str) -> str:
         """
         Checks if the given path points to a valid location.
 
@@ -227,8 +231,7 @@ class IOBase():
         else:
             return True
 
-    @staticmethod
-    def check_ext(path:str, ext_list:list, allow:bool=True) -> bool:
+    def check_ext(self, path:str, ext_list:list, allow:bool=True) -> bool:
         """
         Check whether a given path has a valid extension.
 
@@ -249,8 +252,7 @@ class IOBase():
         else:
             return False if allow else True
 
-    @staticmethod
-    def check_name(path:str, name_list:list, keepExt:bool=True, allow:bool=True) -> bool:
+    def check_name(self, path:str, name_list:list, keepExt:bool=True, allow:bool=True) -> bool:
         """
         Check whether a given path has a valid file name.
 
@@ -272,7 +274,7 @@ class IOBase():
         else:
             return False if allow else True
 
-    def filter_ext(self, paths, ext_list:list=[], allow:bool=True) -> list:
+    def filter_ext(self, paths:list, ext_list:list=[], allow:bool=True) -> list:
         """
         Filters a list of file paths based on the extensions.
 

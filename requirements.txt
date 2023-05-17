@@ -1,4 +1,4 @@
-python-docx
 nvidia-ml-py
+python-docx
 requests
 Pillow

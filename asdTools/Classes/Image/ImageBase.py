@@ -63,7 +63,7 @@ class ImageBase(BaseModel):
 
     def save_image(self, img:Image.Image, output_dir:str="", output_file:str="xxx_resized.png") -> str:
         img = self.read_img(img)
-        output_path = self.generate_output_path(output_dir, output_file)
+        output_path = self.generate_output_path(output_dir=output_dir, output_file=output_file)
         img.save(output_path)
         return output_path
 

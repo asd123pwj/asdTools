@@ -119,7 +119,10 @@ class GPUMonitor(BaseModel):
                 if output_type == "list":
                     result = gpus_available
                 elif output_type == "str":
-                    result = ",".join(gpus_available)
+                    try:
+                        result = ",".join(gpus_available)
+                    except:
+                        result = str(gpus_available)
                 else:
                     self.raise_error(f"No vaild output type: {output_type}.")
                 self.log(f"{extra_info}_Find available gpus: {str(result)}.")

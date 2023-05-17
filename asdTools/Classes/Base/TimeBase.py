@@ -1,10 +1,11 @@
+from asdTools.Classes.Base.RewriteBase import RewriteBase
 from datetime import datetime
 import time
 
 
-class TimeBase():
+class TimeBase(RewriteBase):
     def __init__(self, **kwargs) -> None:
-        pass
+        super().__init__(**kwargs)
 
     @staticmethod
     def get_time(forFile:bool=False, timestamp:float=-1) -> str:

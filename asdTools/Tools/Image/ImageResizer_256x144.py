@@ -8,7 +8,7 @@ class ResizeAndSave(ImageBase):
     Resize the resolution of the image to 256x144 and provides a Windows right-click menu shortcut.
     """
     def __init__(self, **kwargs) -> None:
-        super().__init__(**kwargs)
+        super().__init__(multipleFiles=True, **kwargs)
 
     def __call__(self, 
                  img_path:str, 
