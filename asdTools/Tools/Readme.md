@@ -1,6 +1,6 @@
-[Readme (中文)](Readme.md)
+[README (中文)](README.md)
 
-[Readme (English by LLMs)](Readme_en.md)
+[README (English by LLMs)](README_EN.md)
 
 # 工具支持
 

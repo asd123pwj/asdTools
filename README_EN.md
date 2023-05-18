@@ -1,11 +1,11 @@
 ![asdTools](asdTools.png "asdTools")
 
-> [Github - Code and Readme](https://github.com/asd123pwj/asdTools)
+> [Github - Code and README](https://github.com/asd123pwj/asdTools)
 >
 > [Blog - Describtion of tools](https://mwhls.top/project/asdtools)
 
-[ReadMe (中文)](Readme.md)
-[ReadMe (English by LLMs)](Readme_en.md)
+[ReadMe (中文)](README.md)
+[ReadMe (English by LLMs)](README_EN.md)
 
 # AsdTools
 
@@ -26,7 +26,7 @@
 
 ## Features
 
-- For detailed information, please see [Readme](asdTools/Tools/Readme.md).
+- For detailed information, please see [README](asdTools/Tools/README.md).
 
 1. ImageResizer_256x144 - Resize images to 256x144.
 2. GPUMonitor - Get the ID of the currently available GPU.

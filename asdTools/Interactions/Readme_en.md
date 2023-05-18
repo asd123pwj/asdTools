@@ -1,6 +1,6 @@
 
-[Readme (中文)](Readme.md)
-[Readme (English by LLMs)](Readme_en.md)
+[README (中文)](README.md)
+[README (English by LLMs)](README_EN.md)
 
 # Add Script to Right-Click Menu
 

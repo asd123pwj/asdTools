@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-with open("Readme.md", "r", encoding="utf8") as fh:
+with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 with open(os.path.join(os.path.dirname(__file__), "LICENSE"), "r") as f:

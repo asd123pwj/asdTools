@@ -1,11 +1,11 @@
 ![asdTools](asdTools.png "asdTools")
 
-> [Github - 开源代码及Readme](https://github.com/asd123pwj/asdTools)
+> [Github - 开源代码及README](https://github.com/asd123pwj/asdTools)
 >
 > [Blog - 工具介绍](https://mwhls.top/project/asdtools)
 
-[ReadMe (中文)](Readme.md)
-[ReadMe (English by LLMs)](Readme_en.md)
+[ReadMe (中文)](README.md)
+[ReadMe (English by LLMs)](README_EN.md)
 
 # AsdTools
 
@@ -26,7 +26,7 @@
 
 ## 功能介绍
 
-- 具体介绍见 [Readme](asdTools/Tools/Readme.md)。
+- 具体介绍见 [README](asdTools/Tools/README.md)。
 
 1. ImageResizer_256x144 - 调整图片的分辨率至256x144，提供了Windows右键菜单快捷方式。
 2. GPUMonitor - 获取当前可用GPU的id。
