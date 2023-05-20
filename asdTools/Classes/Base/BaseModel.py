@@ -26,11 +26,11 @@ class BaseModel(CommandBase, UnitBase, TimeBase, VarBase, IOBase):
         self._log_level = log_level
         self._log_level_table = {"message": 0, "all": 0, "warning": 1, "error": 2, "none":3}
 
-    def done(self, message) -> None:
+    def done(self, message="") -> None:
         self._time_end = self.get_time(True)
         self.log("---------------")
         self.log(f"Done. Start in {self._time_start}, end in {self._time_end}")
-        self.log(f"Output files are saved in {self._log_dir}")
+        self.log(f"Output files are saved in {self.convert_path_to_abspath(self._log_dir)}")
         self.log(f"Output log is saved as {self._log_file}")
         if isinstance(message, str):
             self.log(message)

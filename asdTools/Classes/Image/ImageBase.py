@@ -7,10 +7,14 @@ class ImageBase(BaseModel):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
 
-    def convert_img_to_array(self, img:Image.Image) -> np.ndarray:
+    def convert_img_to_arr(self, img:Image.Image) -> np.ndarray:
         img_array = np.array(img)
         return img_array
     
+    def convert_arr_to_img(self, arr:np.ndarray):
+        img = Image.fromarray(arr.astype(np.uint8))
+        return img
+
     def count_img_color(self, img:Image.Image) -> set:
         img = self.read_img(img)
         unique_color = img.getcolors(img.size[0] * img.size[1])
@@ -23,10 +27,6 @@ class ImageBase(BaseModel):
             for color in unique_img:
                 self.count_in_dict(unique_res, color[1], color[0])
         return unique_res
-
-    def draw_arr(self, arr:np.ndarray):
-        img = Image.fromarray(arr.astype(np.uint8))
-        return img
 
     def get_img_info(self, img_path:str):
         img = self.read_img(img_path)
@@ -54,11 +54,13 @@ class ImageBase(BaseModel):
                 img.load()
         elif isinstance(path, Image.Image):
             img = path
+        elif isinstance(path, np.ndarray):
+            img = self.convert_arr_to_img(path)
         
         if output_type == "Image":
             return img
         elif output_type == "array":
-            img_array = self.convert_img_to_array(img)
+            img_array = self.convert_img_to_arr(img)
             return img_array
 
     def save_image(self, img:Image.Image, output_dir:str="", output_file:str="xxx_resized.png") -> str:

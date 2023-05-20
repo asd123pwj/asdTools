@@ -33,7 +33,7 @@
 #### Datasets 工具支持
 
 1. ConvertGT2MMSeg - 即开即用
-   * 将GT图片转为MMSegmentation所需的图片格式。支持处理RGB图与灰度图。
+   * 将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入及输出。
 2. RandomDatasetSplitter_SemanticSegmentation - 即开即用
    * 对内部文件名相同的两个文件夹进行随机划分，如语义分割中的RGB图与GT图。
 

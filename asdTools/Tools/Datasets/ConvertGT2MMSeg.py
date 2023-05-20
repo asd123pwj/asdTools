@@ -3,8 +3,8 @@ from asdTools.Classes.Image.ImageBase import ImageBase
 
 class ConvertGT2MMSeg(ImageBase):
     """
-    将GT图片转为MMSegmentation所需的图片格式。支持处理RGB图与灰度图。
-    Convert GT images to the image format required by MMSegmentation. It can handle RGB images and grayscale images.
+    将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入及输出。
+    Convert GT images to the image format required by MMSegmentation. Support input and output RGB images and grayscale images.
     """
     def __init__(self, **kwargs) -> None:
         super().__init__(multipleFiles=True, **kwargs)
@@ -45,12 +45,21 @@ class ConvertGT2MMSeg(ImageBase):
 
         color_mapping_path = self.generate_output_path(output_dir=output_dir, output_file=f"color_mapping.json")
         color_mapping_str = self.convert_json_to_str(color_mapping)
+        value_first = next(iter(color_mapping.values()))
+        if isinstance(value_first, tuple) and len(value_first) == 3:
+            generateRGB = True
+        else:
+            generateRGB = False
         self.save_file(color_mapping_str, color_mapping_path)
         self.log(f"Color mapping is saved in {color_mapping_path}.")
         imgs_res_path = {}
         for k, img_path in enumerate(imgs_path):
             img_array = self.read_img(img_path, "array")
-            img_res = self.generate_image("L", (img_array.shape[0], img_array.shape[1]))
+            if generateRGB:
+                img_res = self.generate_image("RGB", (img_array.shape[0], img_array.shape[1]))
+                img_res = self.read_img(img_res, "array")
+            else:
+                img_res = self.generate_image("L", (img_array.shape[0], img_array.shape[1]))
             for i in range(img_array.shape[0]):
                 for j in range(img_array.shape[1]):
                     try:
@@ -58,7 +67,12 @@ class ConvertGT2MMSeg(ImageBase):
                     except:
                         val_ori = int(img_array[i][j])
                     val_new = color_mapping[val_ori]
-                    img_res.putpixel((j, i), val_new)
+                    if generateRGB:
+                        img_res[i][j][0] = val_new[0]
+                        img_res[i][j][1] = val_new[1]
+                        img_res[i][j][2] = val_new[2]
+                    else:
+                        img_res.putpixel((j, i), val_new)
             img_res_name = self.get_name_of_file(img_path, True)
             img_res_path = self.save_image(img_res, output_dir, img_res_name)
             imgs_res_path[img_path] = img_res_path
@@ -68,9 +82,10 @@ class ConvertGT2MMSeg(ImageBase):
         
 
 if __name__ == "__main__":
-    # imgs_dir = r"F:\0_DATA\1_DATA\Datasets\VITL\seed0\train\gt2"
-    # imgs_dir = r"F:\0_DATA\1_DATA\Datasets\VITL\seed0\train\vl"
-    mapping_path = r"F:\0_DATA\1_DATA\Datasets\VITL\seed1\train\color_mapping.json"
-    imgs_dir = r"F:\0_DATA\1_DATA\Datasets\VITL\seed0\test\gt"
-    ConvertGT2MMSeg()(imgs_dir, mapping_path=mapping_path)
+    # mapping_path = r"F:\0_DATA\1_DATA\Datasets\VITL\seed1\train\color_mapping.json"
+    # imgs_dir = r"F:\0_DATA\1_DATA\Datasets\VITL\seed0\test\gt"
+    # ConvertGT2MMSeg()(imgs_dir, mapping_path=mapping_path)
     
+    mapping_path = r"Logs\ConvertGT2MMSeg\2023-05-20_09-25-04\color_mapping.json"
+    imgs_dir = r"F:\0_DATA\1_DATA\Datasets\TTPLA\annotations"
+    ConvertGT2MMSeg()(imgs_dir, mapping_path=mapping_path)

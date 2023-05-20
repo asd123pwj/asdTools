@@ -41,6 +41,10 @@ class IOBase(RewriteBase):
             path += suffix
         return path
 
+    def convert_path_to_abspath(self, path:str) -> str:
+        abspath = os.path.abspath(path)
+        return abspath
+
     def get_paths_from_dir(self, path:str, 
                           type:str="file", 
                           needAbsPath:bool=False, 
