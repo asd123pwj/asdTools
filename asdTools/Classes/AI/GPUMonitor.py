@@ -10,7 +10,7 @@ class GPUMonitor(BaseModel):
     def __init__(self, 
                  capacity_thres:float=0, 
                  output_type:str="list", 
-                 time_cooldown:int=300,
+                 time_cooldown:int=60,
                  gpu_log_file:str='GPUMonitor.json',
                  **kwargs) -> None:
         """Initialize GPUMonitor object.
@@ -122,7 +122,7 @@ class GPUMonitor(BaseModel):
                     try:
                         result = ",".join(gpus_available)
                     except:
-                        result = str(gpus_available)
+                        result = str(gpus_available[0])
                 else:
                     self.raise_error(f"No vaild output type: {output_type}.")
                 self.log(f"{extra_info}_Find available gpus: {str(result)}.")
@@ -150,7 +150,7 @@ class GPUMonitor(BaseModel):
                 gpus_available.append(gpus_id[i])
         return gpus_available
 
-    def get_spare_gpus(self, gpus_id:list, time_cooldown:int=300) -> list:
+    def get_spare_gpus(self, gpus_id:list, time_cooldown:int=60) -> list:
         """
         To prevent simultaneously occupy the GPUs.
         Get the list of GPUs that have been idle for longer than the specified time.
@@ -208,6 +208,6 @@ class GPUMonitor(BaseModel):
         return gpus_free
 
 if __name__ == "__main__":
-    monitor = GPUMonitor(capacity_thres=4, output_type="list", time_cooldown=300)(gpus_id=[0, 1, 2, 3], gpu_need=2)
+    monitor = GPUMonitor(capacity_thres=4, output_type="list", time_cooldown=60)(gpus_id=[0, 1, 2, 3], gpu_need=2)
     monitor([0], 1, 1, output_type="list", time_cooldown=10, extra_info="test")
 

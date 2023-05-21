@@ -1,13 +1,15 @@
 from asdTools.Classes.Base.CommandBase import CommandBase
+from asdTools.Classes.Base.SystemBase import SystemBase
 from asdTools.Classes.Base.UnitBase import UnitBase
 from asdTools.Classes.Base.TimeBase import TimeBase
 from asdTools.Classes.Base.VarBase import VarBase
 from asdTools.Classes.Base.IOBase import IOBase
 
 
-class BaseModel(CommandBase, UnitBase, TimeBase, VarBase, IOBase):
+class BaseModel(CommandBase, SystemBase, UnitBase, TimeBase, VarBase, IOBase):
     def __init__(self, name:str="", log_dir:str="", log_file:str="", log_level="all", multipleFiles=False, **kwargs) -> None:
         super(CommandBase, self).__init__(**kwargs)
+        super(SystemBase, self).__init__(**kwargs)
         super(UnitBase, self).__init__(**kwargs)
         super(TimeBase, self).__init__(**kwargs)
         super(VarBase, self).__init__(**kwargs)
