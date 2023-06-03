@@ -2,7 +2,7 @@ from asdTools.Classes.Image.ImageBase import ImageBase
 import sys
 
 
-class ResizeAndSave(ImageBase):
+class ImageResizer_256x144(ImageBase):
     """
     调整图片的分辨率至256x144，提供了Windows右键菜单快捷方式。
     Resize the resolution of the image to 256x144 and provides a Windows right-click menu shortcut.
@@ -24,7 +24,7 @@ class ResizeAndSave(ImageBase):
             output_dir:str="", 
             output_file:str="") -> str:
         img = self.read_img(img_path)
-        img_resize = self.resize_image(img)
+        img_resize = self.resize_image(img, size)
         if output_dir == "":
             output_dir = self.get_dir_of_file(img_path)
             output_dir = self.join(output_dir, f"{size[0]}x{size[1]}")
@@ -41,7 +41,7 @@ if __name__ == "__main__":
         img_path = sys.argv[1]
         img_path = img_path.strip('"')
         size = (256, 144)
-        Resizer = ResizeAndSave(name=f"ImageResizer_{size[0]}x{size[1]}")
+        Resizer = ImageResizer_256x144(name=f"ImageResizer_{size[0]}x{size[1]}")
 
         output_path = Resizer(img_path, size)
         # if you need log, use the following code.

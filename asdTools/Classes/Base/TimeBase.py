@@ -7,8 +7,17 @@ class TimeBase(RewriteBase):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
 
-    @staticmethod
-    def get_time(forFile:bool=False, timestamp:float=-1) -> str:
+    def get_time(self, forFile:bool=False, timestamp:float=-1) -> str:
+        """
+        Get the current time.
+
+        Args:
+            forFile (bool): Specify if the time format should be suitable for file names.
+            timestamp (float): Specify a timestamp to convert to time. Default is -1, which represents the current time.
+
+        Returns:
+            str: The current time in the specified format.
+        """
         if timestamp == -1:
             time = datetime.now()
         else:
@@ -19,16 +28,35 @@ class TimeBase(RewriteBase):
             time = time.strftime(f"%Y-%m-%d %H:%M:%S")
         return time
 
-    @staticmethod
-    def get_timestamp(time:datetime=None) -> float:
-        # wait for improvement
+    def get_timestamp(self, time:datetime=None) -> float:
+        """
+        Get the timestamp from a given time.
+
+        Args:
+            time (datetime): The time to convert to timestamp. Default is None, which represents the current time.
+
+        Returns:
+            float: The timestamp corresponding to the given time.
+        """
         if time == None:
             time = datetime.now()
         timestamp = time.timestamp()
         return timestamp
 
-    @staticmethod
-    def get_time_diff(time1:str, time2:str) -> float:
+    def get_time_diff(self, time1:str, time2:str) -> float:
+        """
+        Calculate the time difference between two time values.
+
+        Args:
+            time1 (str): The first time value.
+            time2 (str): The second time value.
+
+        Returns:
+            float: The time difference in seconds.
+
+        Raises:
+            ValueError: If an invalid time format is provided.
+        """
         time_formats = ("%Y-%m-%d_%H-%M-%S", 
                         "%Y-%m-%d %H:%M:%S")
         for time_format in time_formats:
@@ -42,6 +70,11 @@ class TimeBase(RewriteBase):
                 pass
         raise ValueError("Invalid time format")
 
-    @staticmethod
-    def sleep(time_sleep):
+    def sleep(self, time_sleep):
+        """
+        Pause the execution for a specified amount of time.
+
+        Args:
+            time_sleep: The time to sleep in seconds.
+        """
         time.sleep(time_sleep)

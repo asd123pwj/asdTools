@@ -47,3 +47,5 @@ set "menu_name=ResizeImageTo256x144"
 
    * 图像缩放至 256x144。
    * 已知bug：不能处理有空格的路径。
+2. SDStylesBeautify
+   - 将 Stable Diffusion Web UI 的 styles.csv 美化（包括排序，加分类头，去除空行）。

@@ -1,8 +1,10 @@
-Logs/
-__pycache__/
 asdTools.egg-info/
+__pycache__/
+forTest/
 build/
+Logs/
 
 My*
+
 DocAnalyzer_Resume_LLMs.py
 GradioBase.py

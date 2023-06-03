@@ -24,6 +24,8 @@
 
 1. GPUMonitor - 调用示例
    - 获取可用GPU的ID。
+2. SDStylesBeautify - 快捷方式
+   - 将 Stable Diffusion Web UI 的 styles.csv 美化（包括排序，加分类头，去除空行）。
 
 #### API 工具支持
 

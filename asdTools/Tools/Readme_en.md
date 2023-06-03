@@ -22,6 +22,8 @@
 
 1. GPUMonitor - Call example
    * Get the ID of available GPUs.
+2. SDStylesBeautify - Shortcut
+   - Beautify the styles.csv of the Stable Diffusion Web UI (including sorting, adding category headers, removing empty lines).
 
 #### API Tool Support
 

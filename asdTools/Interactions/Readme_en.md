@@ -2,7 +2,11 @@
 [README (中文)](README.md)
 [README (English by LLMs)](README_EN.md)
 
-# Add Script to Right-Click Menu
+# Shortcuts
+
+[toc]
+
+## Windows Context Menu Support
 
 #### Introduction
 
@@ -13,7 +17,7 @@
 #### Running
 
 1. Choose the script you need, for example, ImageResizer_256x144.
-2. Edit the Bat_ImageResizer_256x144.bat file in that directory:
+2. Edit the Bat_ImageResizer_256x144.bat file in the ContextMenu directory:
    1. Set the Python path.
    2. (Optional) Modify the option name.
 3. Run Bat_ImageResizer_256x144.bat with administrator privileges.
@@ -38,6 +42,10 @@ set "python_path=F:\0_DATA\2_CODE\Anaconda\envs\asdTools\python.exe"
 set "menu_name=ResizeImageTo256x144"
 ```
 
-#### ImageResizer_256x144
+#### Supported Scripts
 
-- Automatically resizes a single image using the Pillow package.
+1. ImageResizer_256x144
+   * Resize images to 256x144.
+   * Known bug: Cannot handle paths with spaces.
+2. SDStylesBeautify
+   - Beautify the styles.csv of the Stable Diffusion Web UI (including sorting, adding category headers, removing empty lines).

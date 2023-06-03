@@ -24,6 +24,12 @@
   - Run `pip install -r requirements.txt`.
   - Choose and use the tool in the asdTools/Tools directory.
 
+#### Examples
+
+- Some tools provide text examples, result examples, and usage examples.
+- Text examples and result examples can be found in the comments of the scripts.
+- Usage examples can be found in the Sample folder.
+
 ## Features
 
 - For detailed information, please see [README](asdTools/Tools/README.md).
@@ -33,6 +39,7 @@
 3. Chat_LLMs - Call ChatGLM API for chatting.
 4. ConvertGT2MMSeg - Convert GT images to the image format required by MMSegmentation. Support input and output RGB images and grayscale images.
 5. RandomDatasetSplitter_SemanticSegmentation - Randomly split two folders with the same internal file names, such as RGB images and GT (Ground Truth) images in semantic segmentation.
+6. SDStylesBeautify - Beautify the styles.csv of the Stable Diffusion Web UI (including sorting, adding category headers, removing empty lines).
 
 ## Update History
 
@@ -43,6 +50,7 @@
 - 2023/05/14 - V0.0.3: Implement GPU monitoring, LLMs chatting, add poster girl, and support installation.
 - 2023/05/17 - V0.0.4: Implement GT2MMSeg converter.
 - 2023/05/17 - V0.0.5: Implement the simultaneous random split of images in two folders and fix the bug preventing import.
+- 2023/06/03 - V0.0.6: Implement to beautify SDWebUI styles.csv, provide usage examples for shortcuts.
 
 #### Old Version Code
 

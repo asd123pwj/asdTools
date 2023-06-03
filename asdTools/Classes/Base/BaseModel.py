@@ -1,4 +1,5 @@
 from asdTools.Classes.Base.CommandBase import CommandBase
+from asdTools.Classes.Base.CsvLikeBase import CsvLikeBase
 from asdTools.Classes.Base.SystemBase import SystemBase
 from asdTools.Classes.Base.UnitBase import UnitBase
 from asdTools.Classes.Base.TimeBase import TimeBase
@@ -6,7 +7,7 @@ from asdTools.Classes.Base.VarBase import VarBase
 from asdTools.Classes.Base.IOBase import IOBase
 
 
-class BaseModel(CommandBase, SystemBase, UnitBase, TimeBase, VarBase, IOBase):
+class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, VarBase, IOBase):
     def __init__(self, name:str="", log_dir:str="", log_file:str="", log_level="all", multipleFiles=False, **kwargs) -> None:
         super(CommandBase, self).__init__(**kwargs)
         super(SystemBase, self).__init__(**kwargs)
@@ -27,6 +28,7 @@ class BaseModel(CommandBase, SystemBase, UnitBase, TimeBase, VarBase, IOBase):
         self._log_file = f"{self.name}_{self._time_start}.log" if log_file == "" else log_file
         self._log_level = log_level
         self._log_level_table = {"message": 0, "all": 0, "warning": 1, "error": 2, "none":3}
+        self._done_msg = []
 
     def done(self, message="") -> None:
         self._time_end = self.get_time(True)
@@ -34,34 +36,31 @@ class BaseModel(CommandBase, SystemBase, UnitBase, TimeBase, VarBase, IOBase):
         self.log(f"Done. Start in {self._time_start}, end in {self._time_end}")
         self.log(f"Output files are saved in {self.convert_path_to_abspath(self._log_dir)}")
         self.log(f"Output log is saved as {self._log_file}")
-        if isinstance(message, str):
-            self.log(message)
-        elif isinstance(message, list):
-            for msg in message:
-                self.log(msg)
-        else:
-            self.log(str(message))
+        if message != "":
+            if isinstance(message, str):
+                self.log(message)
+            elif isinstance(message, list):
+                for msg in message:
+                    self.log(msg)
+            else:
+                self.log(str(message))
+        for msg in self._done_msg:
+            self.log(msg)
 
-    def generate_output_path(self, output_dir:str="", output_middle_dir:str="", output_file:str=""):
+    def generate_output_path(self, output_dir:str="", output_middle_dir:str="", output_file:str="", createIfNotExists=True):
         if output_dir == "":
             output_dir = self._log_dir
         if output_file == "":
             output_file = f"{self.name}_{self.get_time(True)}.log"
         output_path = self.join(output_dir, output_middle_dir, output_file)
+        if createIfNotExists:
+            self.mkdir(output_dir)
         return output_path
 
-    def log(self, content, logTime:bool=True, level="message") -> str:
-        """
-        Logs the content to the console and to a file.
-
-        Args:
-            content (str): Content to log.
-            logTime (bool): If True, prepends the log message with a timestamp. Defaults to True.
-
-        Returns:
-            str: Timestamp of the log message.
-        """
+    def log(self, content, logTime:bool=True, level:str="message", logWhenDone:bool=False) -> str:
         time_current = self.get_time()
+        if logWhenDone:
+            self._done_msg.append(content)
         if self._log_level_table[level] >= self._log_level_table[self._log_level]:
             if level == "warning":
                 content = "Warning: " + content
