@@ -89,3 +89,6 @@ if __name__ == "__main__":
     mapping_path = r"Logs\ConvertGT2MMSeg\2023-05-20_09-25-04\color_mapping.json"
     imgs_dir = r"F:\0_DATA\1_DATA\Datasets\TTPLA\annotations"
     ConvertGT2MMSeg()(imgs_dir, mapping_path=mapping_path)
+
+    imgs_dir = r"Sample\ImageResizer_256x144\before"
+    ConvertGT2MMSeg()(imgs_dir)

@@ -43,3 +43,5 @@
 
 1. ImageResizer_256x144 - 快捷方式
    - 调整图片的分辨率至256x144，提供了Windows右键菜单快捷方式。
+2. RGB2Gray3Channel - 即开即用
+   1. 转换RGB图像为三通道灰度图。

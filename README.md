@@ -40,6 +40,7 @@
 4. ConvertGT2MMSeg - 将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入及输出。
 5. RandomDatasetSplitter_SemanticSegmentation - 对内部文件名相同的两个文件夹进行随机划分，如语义分割中的RGB图与GT图。
 6. SDStylesBeautify - 将 Stable Diffusion Web UI 的 styles.csv 美化（包括排序，加分类头，去除空行）。
+7. RGB2Gray3Channel - 转换RGB图像为三通道灰度图。
 
 ## 更新历史
 
@@ -51,6 +52,7 @@
 - 2023/05/17 - V0.0.4: 实现GT转MMSeg格式。
 - 2023/05/17 - V0.0.5: 实现同时随机划分两文件夹的图片，修复安装无法import的bug。
 - 2023/06/03 - V0.0.6: 实现SDWebUI styles.csv的美化，为快捷方式提供使用示例。
+- 2023/06/12 - V0.0.7: 实现RGB转三通道灰度图。
 
 #### 旧版代码
 

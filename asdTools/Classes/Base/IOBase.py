@@ -118,6 +118,21 @@ class IOBase(RewriteBase):
         file, _ = os.path.splitext(file_name)
         return file
 
+    def get_ext_of_file(self, path:str) -> str:
+        """
+        Returns the extension of the given file path.
+
+        Args:
+        - path (str): The file path.
+
+        Returns:
+        - str: The extension of the given file path.
+
+        """
+        _, file_name = os.path.split(path)
+        _, ext = os.path.splitext(file_name)
+        return ext
+
     def get_name_of_files(self, files:list, keepExt:bool=False) -> list:
         res = []
         for file in files:

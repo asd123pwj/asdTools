@@ -11,9 +11,15 @@ class ImageBase(BaseModel):
         img_array = np.array(img)
         return img_array
     
-    def convert_arr_to_img(self, arr:np.ndarray):
+    def convert_arr_to_img(self, arr:np.ndarray) -> Image.Image:
         img = Image.fromarray(arr.astype(np.uint8))
         return img
+
+    def convert_RGB_to_gray(self, img:Image.Image, need3Channel:bool=False) -> Image.Image:
+        gray_img = img.convert('L')
+        if need3Channel:
+            gray_img = gray_img.convert('RGB')
+        return gray_img
 
     def count_img_color(self, img:Image.Image) -> set:
         img = self.read_img(img)

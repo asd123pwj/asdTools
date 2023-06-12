@@ -40,6 +40,7 @@
 4. ConvertGT2MMSeg - Convert GT images to the image format required by MMSegmentation. Support input and output RGB images and grayscale images.
 5. RandomDatasetSplitter_SemanticSegmentation - Randomly split two folders with the same internal file names, such as RGB images and GT (Ground Truth) images in semantic segmentation.
 6. SDStylesBeautify - Beautify the styles.csv of the Stable Diffusion Web UI (including sorting, adding category headers, removing empty lines).
+7. RGB2Gray3Channel - Convert RGB images into gray images with 3 channels.
 
 ## Update History
 
@@ -51,6 +52,7 @@
 - 2023/05/17 - V0.0.4: Implement GT2MMSeg converter.
 - 2023/05/17 - V0.0.5: Implement the simultaneous random split of images in two folders and fix the bug preventing import.
 - 2023/06/03 - V0.0.6: Implement to beautify SDWebUI styles.csv, provide usage examples for shortcuts.
+- 2023/06/12 - V0.0.7: Implement to convert RGB images into gray images with 3 channels.
 
 #### Old Version Code
 

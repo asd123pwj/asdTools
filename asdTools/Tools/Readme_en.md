@@ -41,3 +41,5 @@
 
 1. ImageResizer_256x144 - Shortcut
    * Resize the resolution of the image to 256x144 and provides a Windows right-click menu shortcut.
+2. RGB2Gray3Channel - Out-of-the-box
+   * Convert RGB images into gray images with 3 channels.
