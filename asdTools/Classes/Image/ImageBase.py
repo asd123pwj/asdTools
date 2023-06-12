@@ -69,9 +69,9 @@ class ImageBase(BaseModel):
             img_array = self.convert_img_to_arr(img)
             return img_array
 
-    def save_image(self, img:Image.Image, output_dir:str="", output_file:str="xxx_resized.png") -> str:
+    def save_image(self, img:Image.Image, output_dir:str="", output_file:str="xxx_resized.png", output_middle_dir:str="") -> str:
         img = self.read_img(img)
-        output_path = self.generate_output_path(output_dir=output_dir, output_file=output_file)
+        output_path = self.generate_output_path(output_dir=output_dir, output_middle_dir=output_middle_dir, output_file=output_file)
         img.save(output_path)
         return output_path
 

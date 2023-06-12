@@ -54,7 +54,8 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
             output_dir = self._log_dir
         if output_file == "":
             output_file = f"{self.name}_{self.get_time(True)}.log"
-        output_path = self.join(output_dir, output_middle_dir, output_file)
+        output_dir = self.join(output_dir, output_middle_dir)
+        output_path = self.join(output_dir, output_file)
         if createIfNotExists:
             self.mkdir(output_dir)
         return output_path
