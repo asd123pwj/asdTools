@@ -14,6 +14,7 @@ class RGB2Gray3Channel(ImageBase):
 
     def run(self, imgs_dir:str) -> str:
         imgs_path = self.get_paths_from_dir(imgs_dir)
+        imgs_path = self.filter_ext(imgs_path, ["png", "jpg", "jpeg"])
         for i, img_path in enumerate(imgs_path):
             img_rgb = self.read_img(img_path)
             img_gray = self.convert_RGB_to_gray(img_rgb, True)
