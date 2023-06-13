@@ -22,8 +22,9 @@ class ImageBase(BaseModel):
         return gray_img
 
     def count_img_color(self, img:Image.Image) -> set:
-        img = self.read_img(img)
-        unique_color = img.getcolors(img.size[0] * img.size[1])
+        _img = self.read_img(img)
+        unique_color = _img.getcolors(_img.size[0] * _img.size[1])
+        _img.close()
         return unique_color
 
     def count_imgs_color(self, imgs:list) -> dict:
@@ -67,12 +68,15 @@ class ImageBase(BaseModel):
             return img
         elif output_type == "array":
             img_array = self.convert_img_to_arr(img)
+            img.close()
             return img_array
 
-    def save_image(self, img:Image.Image, output_dir:str="", output_file:str="xxx_resized.png", output_middle_dir:str="") -> str:
+    def save_image(self, img:Image.Image, output_dir:str="", output_file:str="xxx_resized.png", output_middle_dir:str="", delete=True) -> str:
         img = self.read_img(img)
         output_path = self.generate_output_path(output_dir=output_dir, output_middle_dir=output_middle_dir, output_file=output_file)
         img.save(output_path)
+        if delete:
+            img.close()
         return output_path
 
 

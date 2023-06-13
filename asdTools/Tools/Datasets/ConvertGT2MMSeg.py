@@ -75,6 +75,8 @@ class ConvertGT2MMSeg(ImageBase):
                         img_res.putpixel((j, i), val_new)
             img_res_name = self.get_name_of_file(img_path, True)
             img_res_path = self.save_image(img_res, output_dir, img_res_name)
+            img_res.close()
+            img_array.close()
             imgs_res_path[img_path] = img_res_path
             self.log(f"{k}: The MMSeg format of {img_path} is saved in {img_res_path}")
         self.done()

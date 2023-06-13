@@ -32,6 +32,8 @@ class ImageResizer_256x144(ImageBase):
             output_file = self.get_name_of_file(img_path, True)
             output_file = self.add_suffix(output_file, "_resized")
         img_resize_path = self.save_image(img_resize, output_dir, output_file)
+        img.close()
+        img_resize.close()
         return img_resize_path
 
 

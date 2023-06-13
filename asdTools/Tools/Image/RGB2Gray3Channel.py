@@ -23,6 +23,8 @@ class RGB2Gray3Channel(ImageBase):
             img_dir = img_dir[len(imgs_dir)+1:]
             output_path = self.save_image(img_gray, output_file=img_name, output_middle_dir=img_dir)
             self.log(f"{i+1}: {img_name} has converted from rgb to gray img with 3 channels, saved in {output_path}.")
+            img_rgb.close()
+            img_gray.close()
         self.done()
 
 
