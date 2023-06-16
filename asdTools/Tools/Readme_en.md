@@ -1,6 +1,6 @@
 [README (中文)](README.md)
 
-[README (English by LLMs)](README_EN.md)
+[README (English)](README_EN.md)
 
 # Tool Support
 
@@ -32,14 +32,16 @@
 
 #### Datasets Tool Support
 
-1. ConvertGT2MMSeg - Out-of-the-box
-   * Convert GT images to the image format required by MMSegmentation. Support input and output RGB images and grayscale images.
-2. RandomDatasetSplitter_SemanticSegmentation - Out-of-the-box
+1. RandomDatasetSplitter_SemanticSegmentation - Out-of-the-box
    * Randomly split two folders with the same internal file names, such as RGB images and GT (Ground Truth) images in semantic segmentation.
 
 #### Image Tool Support
 
 1. ImageResizer_256x144 - Shortcut
    * Resize the resolution of the image to 256x144 and provides a Windows right-click menu shortcut.
-2. RGB2Gray3Channel - Out-of-the-box
+2. ConvertGT2MMSeg - Out-of-the-box
+   * Convert GT images to the image format required by MMSegmentation. Support input and output RGB images and grayscale images.
+3. RGB2Gray3Channel - Out-of-the-box
    * Convert RGB images into gray images with 3 channels.
+4. ColorImgWithGT - Out-of-the-box
+   * Colorize the image with the colorful segmentation GT.

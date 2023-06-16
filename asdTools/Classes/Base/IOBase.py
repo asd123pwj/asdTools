@@ -83,7 +83,7 @@ class IOBase(RewriteBase):
                 break
         return paths
 
-    def get_dir_of_file(self, path:str, lastDir:bool=False) -> str:
+    def get_dir_of_file(self, path:str, lastDir:bool=False, root:str="") -> str:
         """
         Returns the directory of the given file path.
 
@@ -98,6 +98,8 @@ class IOBase(RewriteBase):
         dir_name = os.path.dirname(path)
         if lastDir:
             dir_name = os.path.basename(dir_name)
+        elif root != "":
+            dir_name = dir_name[len(root)+1:]
         return dir_name
 
     def get_name_of_file(self, path:str, keepExt:bool=False) -> str:

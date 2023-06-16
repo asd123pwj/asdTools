@@ -7,6 +7,18 @@ class ImageBase(BaseModel):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
 
+    def blend(self, img1:Image.Image, img2:Image.Image, ratio:float):
+        isTmp_img1 = True if isinstance(img1, str) else False
+        isTmp_img2 = True if isinstance(img2, str) else False
+        img1 = self.read_img(img1)
+        img2 = self.read_img(img2)
+        res = Image.blend(img1, img2, ratio)
+        if isTmp_img1:
+            img1.close()
+        if isTmp_img2:
+            img2.close()
+        return res
+
     def convert_img_to_arr(self, img:Image.Image) -> np.ndarray:
         img_array = np.array(img)
         return img_array

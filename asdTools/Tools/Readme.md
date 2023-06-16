@@ -1,6 +1,6 @@
 [README (中文)](README.md)
 
-[README (English by LLMs)](README_EN.md)
+[README (English)](README_EN.md)
 
 # 工具支持
 
@@ -34,14 +34,16 @@
 
 #### Datasets 工具支持
 
-1. ConvertGT2MMSeg - 即开即用
-   * 将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入及输出。
-2. RandomDatasetSplitter_SemanticSegmentation - 即开即用
+1. RandomDatasetSplitter_SemanticSegmentation - 即开即用
    * 对内部文件名相同的两个文件夹进行随机划分，如语义分割中的RGB图与GT图。
 
 #### Image 工具支持
 
 1. ImageResizer_256x144 - 快捷方式
    - 调整图片的分辨率至256x144，提供了Windows右键菜单快捷方式。
-2. RGB2Gray3Channel - 即开即用
-   1. 转换RGB图像为三通道灰度图。
+2. ConvertGT2MMSeg - 即开即用
+   * 将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入及输出。
+3. RGB2Gray3Channel - 即开即用
+   * 转换RGB图像为三通道灰度图。
+4. ColorImgWithGT - 即开即用
+   * 使用彩色分割GT为原图上色。

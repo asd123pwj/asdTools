@@ -1,11 +1,11 @@
-![asdTools](asdTools.png "asdTools")
+![asdTools](https://s2.loli.net/2023/05/14/gyRvM4WHp6hEuxa.png "asdTools")
 
 > [Github - 开源代码及README](https://github.com/asd123pwj/asdTools)
 >
 > [Blog - 工具介绍](https://mwhls.top/project/asdtools)
 
 [ReadMe (中文)](README.md)
-[ReadMe (English by LLMs)](README_EN.md)
+[ReadMe (English)](README_EN.md)
 
 # AsdTools
 
@@ -17,18 +17,19 @@
 
   - 下载本仓库并解压。
   - 在解压目录执行 `pip install .`
-  - 在 asdTools/Tools 路径下选择并使用工具。
+  - 在 *asdTools/Tools* 路径下选择并使用工具。
 - 方式2：仅调用
 
   - 下载本仓库并解压。
   - 运行 `pip install -r requirements.txt`
-  - 在 asdTools/Tools 路径下选择并使用工具。
+  - 在 *asdTools/Tools* 路径下选择并使用工具。
 
 #### 示例
 
 - 部分工具提供文字示例、结果示例，使用示例。
 - 文字示例、结果示例见脚本的注释。
-- 使用示例见Sample文件夹。
+- 使用示例见*Sample*文件夹。
+  - 注：*Sample*文件夹内包含少量图片，可以直接在游览器上参考，无需下载。
 
 ## 功能介绍
 
@@ -41,6 +42,7 @@
 5. RandomDatasetSplitter_SemanticSegmentation - 对内部文件名相同的两个文件夹进行随机划分，如语义分割中的RGB图与GT图。
 6. SDStylesBeautify - 将 Stable Diffusion Web UI 的 styles.csv 美化（包括排序，加分类头，去除空行）。
 7. RGB2Gray3Channel - 转换RGB图像为三通道灰度图。
+8. ColorImgWithGT - 使用彩色分割GT为原图上色。
 
 ## 更新历史
 
@@ -53,6 +55,7 @@
 - 2023/05/17 - V0.0.5: 实现同时随机划分两文件夹的图片，修复安装无法import的bug。
 - 2023/06/03 - V0.0.6: 实现SDWebUI styles.csv的美化，为快捷方式提供使用示例。
 - 2023/06/12 - V0.0.7: 实现RGB转三通道灰度图。
+- 2023/06/16 - V0.0.8: 实现彩色分割GT为原图上色。
 
 #### 旧版代码
 
