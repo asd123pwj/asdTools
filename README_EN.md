@@ -38,11 +38,12 @@
 1. ImageResizer_256x144 - Resize images to 256x144.
 2. GPUMonitor - Get the ID of the currently available GPU.
 3. Chat_LLMs - Call ChatGLM API for chatting.
-4. ConvertGT2MMSeg - Convert GT images to the image format required by MMSegmentation. Support input and output RGB images and grayscale images.
+4. ConvertGT2MMSeg - Convert GT images to the image format required by MMSegmentation. Support input RGB images and grayscale images.
 5. RandomDatasetSplitter_SemanticSegmentation - Randomly split two folders with the same internal file names, such as RGB images and GT (Ground Truth) images in semantic segmentation.
 6. SDStylesBeautify - Beautify the styles.csv of the Stable Diffusion Web UI (including sorting, adding category headers, removing empty lines).
 7. RGB2Gray3Channel - Convert RGB images into gray images with 3 channels.
 8. ColorImgWithGT - Colorize the image with the colorful segmentation GT.
+9. ColorGT - Colorize GT images. Support input and output RGB images and grayscale images.
 
 ## Update History
 

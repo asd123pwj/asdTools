@@ -4,9 +4,9 @@ from asdTools.Classes.Image.ImageBase import ImageBase
 class ColorImgWithGT(ImageBase):
     """
     使用彩色分割GT为原图上色。示例见 Sample\ColorImgWithGT 
-    注：可使用asdTools\Tools\Image\ConvertGT2MMSeg.py为GT上色，指定一下映射像素值即可。
+    注：可使用asdTools\Tools\Image\ColorGT.py为GT上色
     Colorize the image with the colorful segmentation GT. Examples can be found in the "Sample\ColorImgWithGT" folder.
-    Note: You can use the "asdTools\Tools\Image\ConvertGT2MMSeg.py" script to colorize the GT. Specify the corresponding pixel value mapping.
+    Note: You can use the "asdTools\Tools\Image\ColorGT.py" script to colorize the GT. 
     """
     def __init__(self, **kwargs) -> None:
         super().__init__(multipleFiles=True, **kwargs)

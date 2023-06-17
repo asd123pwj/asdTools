@@ -40,8 +40,10 @@
 1. ImageResizer_256x144 - Shortcut
    * Resize the resolution of the image to 256x144 and provides a Windows right-click menu shortcut.
 2. ConvertGT2MMSeg - Out-of-the-box
-   * Convert GT images to the image format required by MMSegmentation. Support input and output RGB images and grayscale images.
+   * Convert GT images to the image format required by MMSegmentation. Support input RGB images and grayscale images.
 3. RGB2Gray3Channel - Out-of-the-box
    * Convert RGB images into gray images with 3 channels.
 4. ColorImgWithGT - Out-of-the-box
    * Colorize the image with the colorful segmentation GT.
+5. ColorGT - Out-of-the-box
+   1. Colorize GT images. Support input and output RGB images and grayscale images.

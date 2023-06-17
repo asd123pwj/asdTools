@@ -1,0 +1,11 @@
+2023-06-17 09:59:37: 1 files in Sample\ConvertGT2MMSeg\before.
+2023-06-17 09:59:37: 1 images in Sample\ConvertGT2MMSeg\before.
+2023-06-17 09:59:37: Start to analyze images color...
+2023-06-17 09:59:37: These images has 4 pixel value:
+2023-06-17 09:59:37: {(255, 255, 255): 14958, (0, 255, 0): 43885, (255, 0, 0): 30250, (0, 0, 0): 400907}
+2023-06-17 09:59:37: Color mapping is saved in ./Logs/ConvertGT2MMSeg/2023-06-17_09-59-37\color_mapping.json.
+2023-06-17 09:59:39: 0: The MMSeg format of Sample\ConvertGT2MMSeg\before\train\26_00105.png is saved in ./Logs/ConvertGT2MMSeg/2023-06-17_09-59-37\train\26_00105.png
+2023-06-17 09:59:39: ---------------
+2023-06-17 09:59:39: Done. Start in 2023-06-17_09-59-37, end in 2023-06-17_09-59-39
+2023-06-17 09:59:39: Output files are saved in f:\0_DATA\1_DATA\CODE\PYTHON\0_asdTools\asdTools\Logs\ConvertGT2MMSeg\2023-06-17_09-59-37
+2023-06-17 09:59:39: Output log is saved as ConvertGT2MMSeg_2023-06-17_09-59-37.log

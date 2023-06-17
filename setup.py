@@ -9,7 +9,7 @@ with open(os.path.join(os.path.dirname(__file__), "LICENSE"), "r") as f:
 
 setup(
     name='asdTools',
-    version='0.0.8',
+    version='0.0.9',
     description='Simple tools for simple goals.',
     url='https://github.com/asd123pwj/asdTools',
     author='MWHLS',

@@ -42,8 +42,10 @@
 1. ImageResizer_256x144 - 快捷方式
    - 调整图片的分辨率至256x144，提供了Windows右键菜单快捷方式。
 2. ConvertGT2MMSeg - 即开即用
-   * 将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入及输出。
+   * 将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入。
 3. RGB2Gray3Channel - 即开即用
    * 转换RGB图像为三通道灰度图。
 4. ColorImgWithGT - 即开即用
    * 使用彩色分割GT为原图上色。
+5. ColorGT - 即开即用
+   * 为GT图片上色，支持RGB图与灰度图的输入及输出。

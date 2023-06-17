@@ -38,11 +38,12 @@
 1. ImageResizer_256x144 - 调整图片的分辨率至256x144，提供了Windows右键菜单快捷方式。
 2. GPUMonitor - 获取当前可用GPU的id。
 3. Chat_LLMs - 用于和LLMs聊天，示例为与ChatGLM本地部署的API通信。
-4. ConvertGT2MMSeg - 将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入及输出。
+4. ConvertGT2MMSeg - 将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入。
 5. RandomDatasetSplitter_SemanticSegmentation - 对内部文件名相同的两个文件夹进行随机划分，如语义分割中的RGB图与GT图。
 6. SDStylesBeautify - 将 Stable Diffusion Web UI 的 styles.csv 美化（包括排序，加分类头，去除空行）。
 7. RGB2Gray3Channel - 转换RGB图像为三通道灰度图。
 8. ColorImgWithGT - 使用彩色分割GT为原图上色。
+9. ColorGT - 为GT图片上色，支持RGB图与灰度图的输入及输出。
 
 ## 更新历史
 

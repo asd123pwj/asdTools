@@ -1,0 +1,16 @@
+2023-06-17 09:52:31: 1 files in Sample\ColorGT\Sample2_withoutMapping\before.
+2023-06-17 09:52:31: 1 images in Sample\ColorGT\Sample2_withoutMapping\before.
+2023-06-17 09:52:31: Start to analyze images color...
+2023-06-17 09:52:31: These images has 4 pixel value:
+2023-06-17 09:52:31: {0: 400907, 1: 14958, 2: 30250, 3: 43885}
+2023-06-17 09:52:31: If you need to specify the conversion results for each color, 
+2023-06-17 09:52:31: please create a JSON file in the format of {"before": "after"}, 
+2023-06-17 09:52:31: For example {"0": "0", "255": "1"} for grayscale images, 
+2023-06-17 09:52:31: and {"(0, 0, 0)": "0" , "(255, 255, 255)": "1"} for RGB images.
+2023-06-17 09:52:31: If you don't need to specify the color mapping, please leave it blank.
+2023-06-17 09:52:31: Color mapping is saved in ./Logs/ColorGT/2023-06-17_09-52-31\color_mapping.json.
+2023-06-17 09:52:32: 0: The MMSeg format of Sample\ColorGT\Sample2_withoutMapping\before\train\26_00105.png is saved in ./Logs/ColorGT/2023-06-17_09-52-31\train\26_00105.png
+2023-06-17 09:52:32: ---------------
+2023-06-17 09:52:32: Done. Start in 2023-06-17_09-52-31, end in 2023-06-17_09-52-32
+2023-06-17 09:52:32: Output files are saved in f:\0_DATA\1_DATA\CODE\PYTHON\0_asdTools\asdTools\Logs\ColorGT\2023-06-17_09-52-31
+2023-06-17 09:52:32: Output log is saved as ColorGT_2023-06-17_09-52-31.log

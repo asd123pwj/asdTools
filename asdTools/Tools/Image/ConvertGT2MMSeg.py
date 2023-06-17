@@ -3,16 +3,16 @@ from asdTools.Classes.Image.ImageBase import ImageBase
 
 class ConvertGT2MMSeg(ImageBase):
     """
-    将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入及输出。
-    Convert GT images to the image format required by MMSegmentation. Support input and output RGB images and grayscale images.
+    将GT图片转为MMSegmentation所需的图片格式。支持RGB图与灰度图的输入。示例见Sample\ConvertGT2MMSeg
+    Convert GT images to the image format required by MMSegmentation. Support input RGB images and grayscale images. EXample in Sample\ConvertGT2MMSeg
     """
     def __init__(self, **kwargs) -> None:
         super().__init__(multipleFiles=True, **kwargs)
 
-    def __call__(self, imgs_dir:str="", output_dir:str="", mapping_path:str="") -> list:
-        return self.run(imgs_dir, output_dir, mapping_path)
+    def __call__(self, imgs_dir:str="") -> list:
+        return self.run(imgs_dir)
 
-    def run(self, imgs_dir:str="", output_dir:str="", mapping_path:str="") -> list:
+    def run(self, imgs_dir:str="") -> list:
         if imgs_dir == "":
             imgs_dir = self.input("Input folder path:", needLog=True)
         imgs_path = self.get_paths_from_dir(imgs_dir)
@@ -24,26 +24,15 @@ class ConvertGT2MMSeg(ImageBase):
         color_count_dict = self.count_imgs_color(imgs_path)
         self.log(f"These images has {len(color_count_dict)} pixel value:")
         self.log(color_count_dict)
-        color_count_path = self.generate_output_path(output_dir=output_dir, output_file=f"color_count.json")
+        color_count_path = self.generate_output_path(output_file=f"color_count.json")
         color_count_str = self.convert_json_to_str(color_count_dict)
         self.save_file(color_count_str, color_count_path)
 
-        if mapping_path == "":
-            self.log('If you need to specify the conversion results for each color, ')
-            self.log('please create a JSON file in the format of {"before": "after"}, ')
-            self.log('For example {"0": "0", "255": "1"} for grayscale images, ')
-            self.log('and {"(0, 0, 0)": "0" , "(255, 255, 255)": "1"} for RGB images.')
-            self.log("If you don't need to specify the color mapping, please leave it blank.")
-            mapping_path = self.input("Input json path: ", needLog=True)
-        if mapping_path == "":
-            color_mapping = {}
-            for i, k in enumerate(color_count_dict.keys()):
-                color_mapping[k] = i
-        else:
-            color_mapping = self.read_json(mapping_path)
-            color_mapping = self.convert_val_adaptive(color_mapping)
+        color_mapping = {}
+        for i, k in enumerate(color_count_dict.keys()):
+            color_mapping[k] = i
 
-        color_mapping_path = self.generate_output_path(output_dir=output_dir, output_file=f"color_mapping.json")
+        color_mapping_path = self.generate_output_path(output_file=f"color_mapping.json")
         color_mapping_str = self.convert_json_to_str(color_mapping)
         value_first = next(iter(color_mapping.values()))
         if isinstance(value_first, tuple) and len(value_first) == 3:
@@ -74,9 +63,10 @@ class ConvertGT2MMSeg(ImageBase):
                     else:
                         img_res.putpixel((j, i), val_new)
             img_res_name = self.get_name_of_file(img_path, True)
-            img_res_path = self.save_image(img_res, output_dir, img_res_name)
-            img_res.close()
-            img_array.close()
+            img_res_dir = self.get_dir_of_file(img_path, root=imgs_dir)
+            img_res_path = self.save_image(img_res, output_file=img_res_name, output_middle_dir=img_res_dir)
+            del img_res
+            del img_array
             imgs_res_path[img_path] = img_res_path
             self.log(f"{k}: The MMSeg format of {img_path} is saved in {img_res_path}")
         self.done()
@@ -84,13 +74,5 @@ class ConvertGT2MMSeg(ImageBase):
         
 
 if __name__ == "__main__":
-    # mapping_path = r"F:\0_DATA\1_DATA\Datasets\VITL\seed1\train\color_mapping.json"
-    # imgs_dir = r"F:\0_DATA\1_DATA\Datasets\VITL\seed0\test\gt"
-    # ConvertGT2MMSeg()(imgs_dir, mapping_path=mapping_path)
-    
-    mapping_path = r"Logs\ConvertGT2MMSeg\2023-05-20_09-25-04\color_mapping.json"
-    imgs_dir = r"F:\0_DATA\1_DATA\Datasets\TTPLA\annotations"
-    ConvertGT2MMSeg()(imgs_dir, mapping_path=mapping_path)
-
-    imgs_dir = r"Sample\ImageResizer_256x144\before"
+    imgs_dir = r"Sample\ConvertGT2MMSeg\before"
     ConvertGT2MMSeg()(imgs_dir)
