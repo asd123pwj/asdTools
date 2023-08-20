@@ -49,3 +49,8 @@
    * 使用彩色分割GT为原图上色。
 5. ColorGT - 即开即用
    * 为GT图片上色，支持RGB图与灰度图的输入及输出。
+
+#### 爬虫工具支持
+
+1. WordPressSpiderInMarkdown - 即开即用
+   1. 爬取我的博客文章，并以markdown形式返回内容。

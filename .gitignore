@@ -3,6 +3,8 @@ __pycache__/
 forTest/
 build/
 Logs/
+LangChain/
+Secret/
 
 My*
 

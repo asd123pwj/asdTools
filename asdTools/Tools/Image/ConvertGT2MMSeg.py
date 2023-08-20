@@ -68,7 +68,7 @@ class ConvertGT2MMSeg(ImageBase):
             del img_res
             del img_array
             imgs_res_path[img_path] = img_res_path
-            self.log(f"{k}: The MMSeg format of {img_path} is saved in {img_res_path}")
+            self.log(f"{k+1}: The MMSeg format of {img_path} is saved in {img_res_path}")
         self.done()
         return imgs_res_path
         

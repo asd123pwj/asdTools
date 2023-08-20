@@ -1,4 +1,5 @@
 from asdTools.Classes.Base.RewriteBase import RewriteBase
+import hashlib
 import shutil
 import json
 import os
@@ -84,17 +85,6 @@ class IOBase(RewriteBase):
         return paths
 
     def get_dir_of_file(self, path:str, lastDir:bool=False, root:str="") -> str:
-        """
-        Returns the directory of the given file path.
-
-        Args:
-        - path (str): The file path.
-        - lastDir (bool): If True, returns only the last directory in the path.
-
-        Returns:
-        - str: The directory of the given file path.
-
-        """
         dir_name = os.path.dirname(path)
         if lastDir:
             dir_name = os.path.basename(dir_name)
@@ -133,7 +123,7 @@ class IOBase(RewriteBase):
         """
         _, file_name = os.path.split(path)
         _, ext = os.path.splitext(file_name)
-        return ext
+        return ext[1:]
 
     def get_name_of_files(self, files:list, keepExt:bool=False) -> list:
         res = []
@@ -141,6 +131,30 @@ class IOBase(RewriteBase):
             file_name = self.get_name_of_file(file, keepExt)
             res.append(file_name)
         return res
+
+    def get_md5_of_file(self, path:str) -> str:
+        with open(path, 'rb') as f:
+            md5_hash = hashlib.md5()
+            while True:
+                chunk = f.read(4096)
+                if not chunk:
+                    break
+                md5_hash.update(chunk)
+        md5_digest = md5_hash.hexdigest()
+        return md5_digest
+
+    def get_md5_of_txt(self, txt:str) -> str:
+        md5_hash = hashlib.md5()
+        md5_hash.update(txt.encode('utf-8'))
+        md5_digest = md5_hash.hexdigest()
+        return md5_digest
+
+    def generate_path(self, output_dir:str="", output_middle_dir:str="", output_file:str="", createIfNotExists=True):
+        output_dir = self.join(output_dir, output_middle_dir)
+        output_path = self.join(output_dir, output_file)
+        if createIfNotExists:
+            self.mkdir(output_dir)
+        return output_path
 
     def join(self, *arg:str) -> str:
         """
@@ -199,10 +213,25 @@ class IOBase(RewriteBase):
                 self.warning(f"Did not match to the appropriate type, forced to write to the file in {log_path}, please check")
         return log_path
 
-    def read_json(self, path:str):
+    def read_json(self, path:str) -> dict:
         with open(path, "r", encoding="utf8") as f:
             content = json.load(f)
         return content
+
+    def read_txt(self, path:str) -> str:
+        with open(path, "r", encoding="utf8") as f:
+            content = f.readlines()
+            content = "".join(content)
+        return content
+
+    def read_html(self, path:str) -> str:
+        with open(path, "r", encoding="utf8") as f:
+            content = f.read()
+        return content
+
+    def remove(self, path:str) -> str:
+        os.remove(path)
+        return path
 
     def check_file(self, path:str) -> bool:
         """

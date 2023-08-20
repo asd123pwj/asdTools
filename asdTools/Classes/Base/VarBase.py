@@ -78,6 +78,7 @@ class VarBase(RewriteBase):
                 list_res.append(str(item))
         return list_res
 
+
     def count_in_dict(self, dictt:dict, key:str, value=1) -> bool:
         """
         Count the occurrence of a key in a dictionary.
@@ -116,6 +117,10 @@ class VarBase(RewriteBase):
             isEqual = val1_sort == val2_sort
             return isEqual
 
+    def deepcopy(self, var):
+        var_copy = copy.deepcopy(var)
+        return var_copy
+
     def get_dict_value(self, dictt:dict, key:str, default_value):
         """
         Get the value of a key from a dictionary, or return a default value if the key does not exist.
@@ -128,9 +133,12 @@ class VarBase(RewriteBase):
         Returns:
             The value of the key if it exists, otherwise the default value.
         """
-        if key in dictt:
-            value = dictt[key]
-        else:
+        try:
+            if key in dictt:
+                value = dictt[key]
+            else:
+                value = default_value
+        except:
             value = default_value
         return value
 
@@ -187,7 +195,7 @@ class VarBase(RewriteBase):
             dict: The merged dictionary.
         """
         # Only test in int type.
-        dic_res = copy.deepcopy(dict1)
+        dic_res = self.deepcopy(dict1)
         for k2, v2 in dict2.items():
             v1 = self.get_dict_value(dic_res, k2, 0)
             value = self.merge_value(v1, v2)

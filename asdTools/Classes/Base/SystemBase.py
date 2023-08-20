@@ -42,3 +42,10 @@ class SystemBase(RewriteBase):
         """
         hostname = socket.gethostname()
         return hostname
+
+    def isAuthor(self):
+        hostname = self.get_hostname()
+        if hostname == "MWHLS":
+            return True
+        else:
+            return False

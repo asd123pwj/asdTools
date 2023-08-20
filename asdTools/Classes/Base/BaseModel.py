@@ -9,7 +9,14 @@ from asdTools.Classes.Base.IOBase import IOBase
 
 
 class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBase, VarBase, IOBase):
-    def __init__(self, name:str="", log_dir:str="", log_file:str="", log_level="all", multipleFiles=False, **kwargs) -> None:
+    def __init__(self, 
+                 name:str="", 
+                 log_dir:str="", 
+                 log_file:str="", 
+                 log_level:str="all", 
+                 multipleFiles:str=False, 
+                 log_info:tuple=None,
+                 **kwargs) -> None:
         super(CommandBase, self).__init__(**kwargs)
         super(SystemBase, self).__init__(**kwargs)
         super(UnitBase, self).__init__(**kwargs)
@@ -22,22 +29,34 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
             self.name = self.__class__.__name__
         else:
             self.name = name
+        # if multipleFiles:
+        #     self._log_dir = f"./Logs/{self.name}/{self._time_start}" if log_dir == "" else log_dir
+        #     self._log_dir_root = f"./Logs/{self.name}/{self._time_start}" if log_dir == "" else log_dir
+        # else:
+        self._log_dir = self.join("Logs", self.name) if log_dir == "" else log_dir
+        self._log_dir_root = self._log_dir
+        self._multipleFiles = multipleFiles
         if multipleFiles:
-            self._log_dir = f"./Logs/{self.name}/{self._time_start}" if log_dir == "" else log_dir
-        else:
-            self._log_dir = f"./Logs/{self.name}" if log_dir == "" else log_dir
+            self._log_dir = self.join(self._log_dir, self._time_start)
 
         self._log_file = f"{self.name}_{self._time_start}.log" if log_file == "" else log_file
         self._log_level = log_level
         self._log_level_table = {"message": 0, "all": 0, "warning": 1, "error": 2, "none":3}
         self._done_msg = []
+        if log_info:
+            self.set_log(log_info)
 
-    def done(self, message="") -> None:
+    def done(self, message="", isZh:bool=False) -> None:
         self._time_end = self.get_time(True)
         self.log("---------------")
-        self.log(f"Done. Start in {self._time_start}, end in {self._time_end}")
-        self.log(f"Output files are saved in {self.convert_path_to_abspath(self._log_dir)}")
-        self.log(f"Output log is saved as {self._log_file}")
+        if isZh:
+            self.log(f"开始于 {self._time_start}, 结束于 {self._time_end}")
+            self.log(f"输出文件保存至: {self.convert_path_to_abspath(self._log_dir)}")
+            self.log(f"日志信息保存至: {self._log_file}")
+        else:
+            self.log(f"Done. Start in {self._time_start}, end in {self._time_end}")
+            self.log(f"Output files are saved in {self.convert_path_to_abspath(self._log_dir)}")
+            self.log(f"Output log is saved as {self._log_file}")
         if message != "":
             if isinstance(message, str):
                 self.log(message)
@@ -54,11 +73,25 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
             output_dir = self._log_dir
         if output_file == "":
             output_file = f"{self.name}_{self.get_time(True)}.log"
-        output_dir = self.join(output_dir, output_middle_dir)
-        output_path = self.join(output_dir, output_file)
-        if createIfNotExists:
-            self.mkdir(output_dir)
+        output_path = self.generate_path(
+            output_dir=output_dir, 
+            output_middle_dir=output_middle_dir, 
+            output_file=output_file, 
+            createIfNotExists=createIfNotExists)
         return output_path
+
+    def get_log(self):
+        return self._log_dir_root, self._log_file, self._time_start, self.name
+
+    def set_log(self, log_info:tuple):
+        self._log_dir_root = log_info[0]
+        self._log_file = log_info[1]
+        self._time_start = log_info[2]
+        self.name = log_info[3]
+        if self._multipleFiles:
+            self._log_dir = self.join(self._log_dir_root, self._time_start)
+        else:
+            self._log_dir = self._log_dir_root
 
     def log(self, content, logTime:bool=True, level:str="message", logWhenDone:bool=False) -> str:
         time_current = self.get_time()
@@ -102,6 +135,27 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
         """
         self.log(message, level="error")
         self.exit(statue_code)
+
+    def begining(self, message="", isZh:bool=False) -> None:
+        self.log("---------------")
+        if isZh:
+            self.log(f"开始于{self._time_start}")
+            self.log(f"输出文件保存至{self.convert_path_to_abspath(self._log_dir)}")
+            self.log(f"日志信息保存至{self._log_file}")
+        else:
+            self.log(f"Start in {self._time_start}")
+            self.log(f"Output files are saved in {self.convert_path_to_abspath(self._log_dir)}")
+            self.log(f"Output log is saved as {self._log_file}")
+        if message != "":
+            if isinstance(message, str):
+                self.log(message)
+            elif isinstance(message, list):
+                for msg in message:
+                    self.log(msg)
+            else:
+                self.log(str(message))
+        for msg in self._done_msg:
+            self.log(msg)
 
     def warning(self, message:str) -> None:
         self.log(message, level="warning")

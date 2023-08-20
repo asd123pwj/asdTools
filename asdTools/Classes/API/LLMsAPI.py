@@ -1,7 +1,7 @@
-from asdTools.Classes.API.ApiBase import ApiBase
+from asdTools.Classes.API.APIBase import APIBase
 
 
-class LLMsAPI(ApiBase):
+class LLMsAPI(APIBase):
     def __init__(self, 
                  url:str="http:localhost:8000", 
                  history:list=[],

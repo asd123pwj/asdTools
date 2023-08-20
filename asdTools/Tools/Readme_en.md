@@ -47,3 +47,8 @@
    * Colorize the image with the colorful segmentation GT.
 5. ColorGT - Out-of-the-box
    1. Colorize GT images. Support input and output RGB images and grayscale images.
+
+#### Spider Tool Support
+
+1. WordPressSpiderInMarkdown - Out-of-the-box
+   1. Crawl post of my blog, and output in markdown.

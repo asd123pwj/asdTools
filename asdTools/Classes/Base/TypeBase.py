@@ -7,6 +7,9 @@ class TypeBase(RewriteBase):
 
     def convert_gradioFiles_to_pathList(self, files):
         res = []
-        for file in files:
-            res.append(file.name)
+        try:
+            for file in files:
+                res.append(file.name)
+        except:
+            res = files
         return res

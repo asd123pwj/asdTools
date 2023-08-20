@@ -3,13 +3,16 @@ class CounterBase():
                  items,
                  items_key:list=None,
                  pos:int=0,
-                 empty_item=None,
                  **kwargs) -> None:
         self.size = len(items)
         self.items = items
         self.pos = pos
         self.items_key = items_key
-        self.empty_item = empty_item
+
+    def current(self):
+        pos = self.get_pos()
+        item = self.items[pos]
+        return item
 
     def get_pos(self, pos:int=None):
         if pos == None:
@@ -20,6 +23,18 @@ class CounterBase():
             except:
                 pos = None
         return pos
+
+    def update(self, 
+               items=None,
+               items_key:list=None,
+               pos:int=-1):
+        if self.items != None:
+            self.items = items
+            self.size = len(items)
+        if pos != -1:
+            self.pos = pos
+        if items_key != None:
+            self.items_key = items_key
 
     # def next(self, step:int):
     #     if step == 1:
@@ -73,18 +88,22 @@ class CounterLoop(CounterBase):
                  items,
                  items_key:list=None,
                  pos:int=0,
-                 empty_item=None,
                  **kwargs) -> None:
-        super().__init__(items, items_key, pos, empty_item,**kwargs)
+        super().__init__(items, items_key, pos,**kwargs)
 
     def next(self, step:int):
+        if self.size == 0:
+            return {} if abs(step) == 1 else [{}] * 5
         res = []
         isNext = 1 if step >= 0 else -1
         step = abs(step)
         for i in range(step):
+            if isNext == -1:
+                self.pos += isNext
             pos = self.get_pos()
             res.append(self.items[pos])
-            self.pos += isNext
+            if isNext == 1:
+                self.pos += isNext
             if self.pos >= self.size:
                 self.pos = 0
             elif self.pos < 0:

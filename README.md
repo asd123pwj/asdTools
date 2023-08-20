@@ -44,6 +44,7 @@
 7. RGB2Gray3Channel - 转换RGB图像为三通道灰度图。
 8. ColorImgWithGT - 使用彩色分割GT为原图上色。
 9. ColorGT - 为GT图片上色，支持RGB图与灰度图的输入及输出。
+10. WordPressSpiderInMarkdown - 爬取我的博客，以markdown返回。
 
 ## 更新历史
 
@@ -57,6 +58,7 @@
 - 2023/06/03 - V0.0.6: 实现SDWebUI styles.csv的美化，为快捷方式提供使用示例。
 - 2023/06/12 - V0.0.7: 实现RGB转三通道灰度图。
 - 2023/06/16 - V0.0.8: 实现彩色分割GT为原图上色。
+- 2023/08/20 - V0.0.10: 实现爬取我的博客文章。
 
 #### 旧版代码
 

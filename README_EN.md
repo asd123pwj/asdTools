@@ -44,6 +44,7 @@
 7. RGB2Gray3Channel - Convert RGB images into gray images with 3 channels.
 8. ColorImgWithGT - Colorize the image with the colorful segmentation GT.
 9. ColorGT - Colorize GT images. Support input and output RGB images and grayscale images.
+10. WordPressSpiderInMarkdown - Crawl post of my blog, and output in markdown.
 
 ## Update History
 
@@ -57,6 +58,7 @@
 - 2023/06/03 - V0.0.6: Implement to beautify SDWebUI styles.csv, provide usage examples for shortcuts.
 - 2023/06/12 - V0.0.7: Implement to convert RGB images into gray images with 3 channels.
 - 2023/06/16 - V0.0.8: Implement to colorize the image with the colorful segmentation GT.
+- 2023/08/20 - V0.0.10: Implement to crawl my blog and get markdown format.
 
 #### Old Version Code
 
