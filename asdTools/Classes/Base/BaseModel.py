@@ -48,7 +48,7 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
 
     def done(self, message="", isZh:bool=False) -> None:
         self._time_end = self.get_time(True)
-        self.log("---------------")
+        self.separator("Finished")
         if isZh:
             self.log(f"开始于 {self._time_start}, 结束于 {self._time_end}")
             self.log(f"输出文件保存至: {self.convert_path_to_abspath(self._log_dir)}")
@@ -124,6 +124,10 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
         if needLog:
             self.log(f"{message}{content}")
         return content
+
+    def separator(self, message:str) -> None:
+        self.log(f"")
+        self.log(f"---------- {message} ----------")
 
     def raise_error(self, message:str, statue_code:int=-1) -> None:
         """

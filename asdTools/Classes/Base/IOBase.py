@@ -148,6 +148,18 @@ class IOBase(RewriteBase):
         md5_hash.update(txt.encode('utf-8'))
         md5_digest = md5_hash.hexdigest()
         return md5_digest
+    
+    def get_size_of_file(self, path:str, unit:str="MB"):
+        size = os.path.getsize(path)
+        size = self.convert_storage_units(size, "B", unit)
+        return size
+    
+    def get_size_of_files(self, files:list, unit:str="MB"):
+        sizes = []
+        for file in files:
+            size = self.get_size_of_file(file, unit)
+            sizes.append(size)
+        return sizes
 
     def generate_path(self, output_dir:str="", output_middle_dir:str="", output_file:str="", createIfNotExists=True):
         output_dir = self.join(output_dir, output_middle_dir)
@@ -232,6 +244,12 @@ class IOBase(RewriteBase):
     def remove(self, path:str) -> str:
         os.remove(path)
         return path
+    
+    def remove_root_of_path(self, path:str, root:str) -> str:
+        root = os.path.join(root, "remove_root_of_path.asdTools.tmp")
+        root = root.replace("remove_root_of_path.asdTools.tmp", "")
+        path = path.replace(root, "")
+        return path
 
     def check_file(self, path:str) -> bool:
         """
@@ -275,11 +293,11 @@ class IOBase(RewriteBase):
 
         """
         if os.path.isfile(path):
-            return False
-        elif os.path.isdir(path):
-            return False
-        else:
             return True
+        elif os.path.isdir(path):
+            return True
+        else:
+            return False
 
     def check_ext(self, path:str, ext_list:list, allow:bool=True) -> bool:
         """
@@ -323,6 +341,13 @@ class IOBase(RewriteBase):
             return True if allow else False
         else:
             return False if allow else True
+        
+    def check_size(self, path:str, max_size:float, unit:str="MB", allow:bool=True):
+        size = self.get_size_of_file(path, unit)
+        if size < max_size:
+            return True if allow else False
+        else:
+            return False if allow else True
 
     def filter_ext(self, paths:list, ext_list:list=[], allow:bool=True) -> list:
         """
@@ -341,4 +366,11 @@ class IOBase(RewriteBase):
         for path in paths:
             if self.check_ext(path, ext_list, allow):
                 res.append(path)
+        return res
+    
+    def filter_size(self, files:list, max_size:float, unit:str="MB", allow:bool=True):
+        res = []
+        for file in files:
+            if self.check_size(file, max_size, unit, allow):
+                res.append(file)
         return res

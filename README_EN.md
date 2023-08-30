@@ -45,6 +45,7 @@
 8. ColorImgWithGT - Colorize the image with the colorful segmentation GT.
 9. ColorGT - Colorize GT images. Support input and output RGB images and grayscale images.
 10. WordPressSpiderInMarkdown - Crawl post of my blog, and output in markdown.
+11. SaveExpData - Exclude useless files and save experiments data.
 
 ## Update History
 
@@ -59,6 +60,7 @@
 - 2023/06/12 - V0.0.7: Implement to convert RGB images into gray images with 3 channels.
 - 2023/06/16 - V0.0.8: Implement to colorize the image with the colorful segmentation GT.
 - 2023/08/20 - V0.0.10: Implement to crawl my blog and get markdown format.
+- 2023/08/30 - V0.0.11: Implement to save experiments data while excluding useless files.
 
 #### Old Version Code
 

@@ -13,3 +13,6 @@ class RewriteBase():
 
     def warning(self, *args):
         pass
+
+    def convert_storage_units(self, *args):
+        pass

@@ -53,4 +53,9 @@
 #### 爬虫工具支持
 
 1. WordPressSpiderInMarkdown - 即开即用
-   1. 爬取我的博客文章，并以markdown形式返回内容。
+   * 爬取我的博客文章，并以markdown形式返回内容。
+
+#### 存储支持
+
+1. SaveExpData - 即开即用
+   * 排除无用文件，保存实验数据。

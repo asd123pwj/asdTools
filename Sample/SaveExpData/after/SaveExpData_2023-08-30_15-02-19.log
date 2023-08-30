@@ -1,0 +1,24 @@
+2023-08-30 15:02:19: 11 files found
+2023-08-30 15:02:19: 11 files after .gitignore (if have)
+2023-08-30 15:02:19: 7 files after exclude files with extension in ['jpg', 'bmp', 'png']
+2023-08-30 15:02:19: 
+2023-08-30 15:02:19: ---------- Small File ----------
+2023-08-30 15:02:19: 1: Sample/ColorGT\Sample1_withMapping\after\color_count.json --copy-> Logs\SaveExpData\2023-08-30_15-02-19\Sample1_withMapping\after\color_count.json
+2023-08-30 15:02:19: 2: Sample/ColorGT\Sample1_withMapping\after\color_mapping.json --copy-> Logs\SaveExpData\2023-08-30_15-02-19\Sample1_withMapping\after\color_mapping.json
+2023-08-30 15:02:19: 3: Sample/ColorGT\Sample1_withMapping\before\color_mapping.json --copy-> Logs\SaveExpData\2023-08-30_15-02-19\Sample1_withMapping\before\color_mapping.json
+2023-08-30 15:02:19: 4: Sample/ColorGT\Sample2_withoutMapping\after\color_count.json --copy-> Logs\SaveExpData\2023-08-30_15-02-19\Sample2_withoutMapping\after\color_count.json
+2023-08-30 15:02:19: 5: Sample/ColorGT\Sample2_withoutMapping\after\color_mapping.json --copy-> Logs\SaveExpData\2023-08-30_15-02-19\Sample2_withoutMapping\after\color_mapping.json
+2023-08-30 15:02:19: 
+2023-08-30 15:02:19: ---------- Large File ----------
+2023-08-30 15:02:19: 1: Sample/ColorGT\Sample2_withoutMapping\after\ColorGT_2023-06-17_09-52-31.log too large, size: 0.0KB
+2023-08-30 15:02:19: 2: Sample/ColorGT\Sample1_withMapping\after\ColorGT_2023-06-17_09-52-30.log too large, size: 0.0KB
+2023-08-30 15:02:19: 
+2023-08-30 15:02:19: ---------- Finished ----------
+2023-08-30 15:02:19: Done. Start in 2023-08-30_15-02-19, end in 2023-08-30_15-02-19
+2023-08-30 15:02:19: Output files are saved in F:\0_DATA\1_DATA\CODE\PYTHON\0_asdTools\asdTools\Logs\SaveExpData\2023-08-30_15-02-19
+2023-08-30 15:02:19: Output log is saved as SaveExpData_2023-08-30_15-02-19.log
+2023-08-30 15:02:19: 感谢mherrmann实现的gitignore_parser，但它的效果有点不好，这里做了一点改进，但是还有部分问题无法解决
+2023-08-30 15:02:19: 请注意核对结果！
+2023-08-30 15:02:19: Thanks to mherrmann for implementing gitignore_parser, but its effectiveness is not ideal. Some improvements have been made here, but there are still some issues that cannot be resolved.
+2023-08-30 15:02:19: ATTENTION: review the results!
+2023-08-30 15:02:19: SCI +1  d(`･∀･)b

@@ -52,3 +52,8 @@
 
 1. WordPressSpiderInMarkdown - Out-of-the-box
    1. Crawl post of my blog, and output in markdown.
+
+#### Storage Tool Support
+
+1. SaveExpData - Out-of-the-box
+   1. Exclude useless files and save experiments data.

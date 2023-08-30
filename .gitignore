@@ -1,10 +1,11 @@
 asdTools.egg-info/
 __pycache__/
+LangChain/
 forTest/
 build/
-Logs/
-LangChain/
 Secret/
+Logs/
+.git/
 
 My*
 

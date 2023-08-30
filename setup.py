@@ -9,7 +9,7 @@ with open(os.path.join(os.path.dirname(__file__), "LICENSE"), "r") as f:
 
 setup(
     name='asdTools',
-    version='0.0.10',
+    version='0.0.11',
     description='Simple tools for simple goals.',
     url='https://github.com/asd123pwj/asdTools',
     author='MWHLS',
@@ -21,6 +21,7 @@ setup(
     keywords='MWHLS library',
     packages=find_packages(include=['asdTools.Classes.*']),
     install_requires=[
+        'gitignore-parser',
         'beautifulsoup4',
         'nvidia-ml-py',
         'python-docx',

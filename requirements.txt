@@ -1,3 +1,4 @@
+gitignore-parser
 beautifulsoup4
 nvidia-ml-py
 python-docx
