@@ -40,7 +40,7 @@ class SaveExpData(BaseModel):
             self.log(f"{i+1}: {file} --copy-> {output_path}")
         self.separator("Large File")
         for i, file in enumerate(files_large):
-            self.log(f"{i+1}: {file} too large, size: {round(self.get_size_of_file(file), 2)}{unit}")
+            self.log(f"{i+1}: {round(self.get_size_of_file(file), 2)}{unit}\t {file} too large")
         message = []
         message.append("感谢mherrmann实现的gitignore_parser，但它的效果有点不好，这里做了一点改进，但是还有部分问题无法解决")
         message.append("请注意核对结果！")
