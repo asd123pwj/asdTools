@@ -1,4 +1,5 @@
 from gitignore_parser import parse_gitignore
+import time
 import tempfile
 import os
 
@@ -9,7 +10,7 @@ class GitIgnore():
     # Thanks to mherrmann for implementing gitignore_parser, but its effectiveness is not ideal. Some improvements have been made here, but there are still some issues that cannot be resolved.
     # ATTENTION: review the results!
     def __init__(self, path:str=""):
-        self.tmpfile = "temp_gitignore_asdTools"
+        self.tmpfile = "temp_gitignore_asdTools-" + str(time.time())
         self.gitignore_path = path
 
     def __call__(self, files:list):
@@ -30,6 +31,7 @@ class GitIgnore():
                         for i in range(10):
                             line = line + "*/"
                             temp_file.write(line + "\n")
+                temp_file.write("temp_gitignore_asdTools-*" + "\n")
         gitignore = parse_gitignore(self.tmpfile)
         self.gitignore = gitignore
 

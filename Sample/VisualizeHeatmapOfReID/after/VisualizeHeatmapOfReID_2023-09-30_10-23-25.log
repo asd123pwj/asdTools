@@ -1,0 +1,13 @@
+2023-09-30 10:23:25: ---------------
+2023-09-30 10:23:25: Start in 2023-09-30_10-23-25
+2023-09-30 10:23:25: Output files are saved in F:\0_DATA\1_DATA\CODE\PYTHON\202308_CCReID\20230814_01_CAL-CCReID\Logs\VisualizeHeatmapOfReID\2023-09-30_10-23-25
+2023-09-30 10:23:25: Output log is saved as VisualizeHeatmapOfReID_2023-09-30_10-23-25.log
+2023-09-30 10:23:25: 2 files found in ../../../../Datasets/ForTest
+2023-09-30 10:23:25: 2 images found after filter extension by ['png', 'jpg', 'jpeg']
+2023-09-30 10:23:28: 1/2: the heatmap of ../../../../Datasets/ForTest\train_Thanks PRCC\092\A_cropped_rgb001.jpg has been saved to Logs\VisualizeHeatmapOfReID\2023-09-30_10-23-25\train_Thanks PRCC\092\A_cropped_rgb001.jpg.
+2023-09-30 10:23:28: 2/2: the heatmap of ../../../../Datasets/ForTest\train_Thanks PRCC\095\A_cropped_rgb001.jpg has been saved to Logs\VisualizeHeatmapOfReID\2023-09-30_10-23-25\train_Thanks PRCC\095\A_cropped_rgb001.jpg.
+2023-09-30 10:23:28: 
+2023-09-30 10:23:28: ---------- Finished ----------
+2023-09-30 10:23:28: Done. Start in 2023-09-30_10-23-25, end in 2023-09-30_10-23-28
+2023-09-30 10:23:28: Output files are saved in F:\0_DATA\1_DATA\CODE\PYTHON\202308_CCReID\20230814_01_CAL-CCReID\Logs\VisualizeHeatmapOfReID\2023-09-30_10-23-25
+2023-09-30 10:23:28: Output log is saved as VisualizeHeatmapOfReID_2023-09-30_10-23-25.log

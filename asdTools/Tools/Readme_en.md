@@ -47,6 +47,8 @@
    * Colorize the image with the colorful segmentation GT.
 5. ColorGT - Out-of-the-box
    1. Colorize GT images. Support input and output RGB images and grayscale images.
+6. VisualizeHeatmapOfReID - Call example
+   * Visualize heatmap, only test in ReID.
 
 #### Spider Tool Support
 

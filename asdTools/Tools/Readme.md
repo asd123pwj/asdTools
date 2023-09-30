@@ -49,6 +49,8 @@
    * 使用彩色分割GT为原图上色。
 5. ColorGT - 即开即用
    * 为GT图片上色，支持RGB图与灰度图的输入及输出。
+6. VisualizeHeatmapOfReID - 调用示例
+   * 可视化热力图，测试于ReID。
 
 #### 爬虫工具支持
 
