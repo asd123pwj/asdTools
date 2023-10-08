@@ -1,0 +1,5 @@
+1: 	 F:/0_DATA/1_DATA/Datasets/PRCC\rgb/test\C\001\cropped_rgb001.jpg 
+2: 	 F:/0_DATA/1_DATA/Datasets/PRCC\rgb/test\C\001\cropped_rgb004.jpg 
+...
+3542: 	 F:/0_DATA/1_DATA/Datasets/PRCC\rgb/test\C\328\cropped_rgb070.jpg 
+3543: 	 F:/0_DATA/1_DATA/Datasets/PRCC\rgb/test\C\328\cropped_rgb073.jpg 

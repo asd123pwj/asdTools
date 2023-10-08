@@ -47,6 +47,7 @@
 10. WordPressSpiderInMarkdown - Crawl post of my blog, and output in markdown.
 11. SaveExpData - Exclude useless files and save experiments data.
 12. VisualizeHeatmapOfReID - Visualize heatmap.
+13. VisualizeRankOfReID - Visualize ReID Rank, very fast。
 
 ## Update History
 
@@ -63,6 +64,7 @@
 - 2023/08/20 - V0.0.10: Implement to crawl my blog and get markdown format.
 - 2023/08/30 - V0.0.11: Implement to save experiments data while excluding useless files.
 - 2023/09/30 - V0.0.12: Implement to visualize heatmap.
+- 2023/10/08 - V0.0.13: Implement to visualize ReID rank.
 
 #### Old Version Code
 

@@ -2,7 +2,7 @@ from asdTools.Classes.Base.RewriteBase import RewriteBase
 import csv
 
 
-class CsvLikeBase(RewriteBase):
+class FormatBase(RewriteBase):
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
 

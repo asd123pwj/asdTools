@@ -1,6 +1,6 @@
 from gitignore_parser import parse_gitignore
-import time
 import tempfile
+import time
 import os
 
 

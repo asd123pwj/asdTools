@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 from asdTools.Secret.key import XFYunAPPID, XFYunAPISecretASR
 from asdTools.Classes.Base.BaseModel import BaseModel
-import base64
+import requests
 import hashlib
+import urllib
+import base64
 import hmac
 import json
-import os
 import time
-import requests
-import urllib
+import os
 
 lfasr_host = 'https://raasr.xfyun.cn/v2/api'
 # 请求的接口名

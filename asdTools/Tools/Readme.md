@@ -51,6 +51,8 @@
    * 为GT图片上色，支持RGB图与灰度图的输入及输出。
 6. VisualizeHeatmapOfReID - 调用示例
    * 可视化热力图，测试于ReID。
+7. VisualizeRankOfReID - 调用示例
+   * 可视化ReID Rank，使用markdown表格，极快。
 
 #### 爬虫工具支持
 

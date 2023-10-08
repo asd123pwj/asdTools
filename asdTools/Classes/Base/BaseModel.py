@@ -1,5 +1,5 @@
 from asdTools.Classes.Base.CommandBase import CommandBase
-from asdTools.Classes.Base.CsvLikeBase import CsvLikeBase
+from asdTools.Classes.Base.FormatBase import FormatBase
 from asdTools.Classes.Base.SystemBase import SystemBase
 from asdTools.Classes.Base.UnitBase import UnitBase
 from asdTools.Classes.Base.TimeBase import TimeBase
@@ -8,7 +8,7 @@ from asdTools.Classes.Base.VarBase import VarBase
 from asdTools.Classes.Base.IOBase import IOBase
 
 
-class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBase, VarBase, IOBase):
+class BaseModel(CommandBase, FormatBase, SystemBase, UnitBase, TimeBase, TypeBase, VarBase, IOBase):
     def __init__(self, 
                  name:str="", 
                  log_dir:str="", 
@@ -18,6 +18,7 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
                  log_info:tuple=None,
                  **kwargs) -> None:
         super(CommandBase, self).__init__(**kwargs)
+        super(FormatBase, self).__init__(**kwargs)
         super(SystemBase, self).__init__(**kwargs)
         super(UnitBase, self).__init__(**kwargs)
         super(TimeBase, self).__init__(**kwargs)
@@ -46,17 +47,46 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
         if log_info:
             self.set_log(log_info)
 
-    def done(self, message="", isZh:bool=False) -> None:
-        self._time_end = self.get_time(True)
-        self.separator("Finished")
-        if isZh:
-            self.log(f"开始于 {self._time_start}, 结束于 {self._time_end}")
-            self.log(f"输出文件保存至: {self.convert_path_to_abspath(self._log_dir)}")
-            self.log(f"日志信息保存至: {self._log_file}")
+    def begining(self, message="", isSimple:bool=False, isZh:bool=False) -> None:
+        if isSimple:
+            if isZh: self.log(f"------ 日志保存至 {self.convert_path_to_abspath(self._log_dir)} ------")
+            else:    self.log(f"------ Output are saved in {self.convert_path_to_abspath(self._log_dir)} ------")
         else:
-            self.log(f"Done. Start in {self._time_start}, end in {self._time_end}")
-            self.log(f"Output files are saved in {self.convert_path_to_abspath(self._log_dir)}")
-            self.log(f"Output log is saved as {self._log_file}")
+            self.separator("Begining")
+            if isZh:
+                self.log(f"开始于{self._time_start}")
+                self.log(f"输出文件保存至{self.convert_path_to_abspath(self._log_dir)}")
+                self.log(f"日志信息保存至{self._log_file}")
+            else:
+                self.log(f"Start in {self._time_start}")
+                self.log(f"Output files are saved in {self.convert_path_to_abspath(self._log_dir)}")
+                self.log(f"Output log is saved as {self._log_file}")
+        if message != "":
+            if isinstance(message, str):
+                self.log(message)
+            elif isinstance(message, list):
+                for msg in message:
+                    self.log(msg)
+            else:
+                self.log(str(message))
+        for msg in self._done_msg:
+            self.log(msg)
+
+    def done(self, message="", isSimple:bool=False, isZh:bool=False) -> None:
+        self._time_end = self.get_time(True)
+        if isSimple:
+            if isZh: self.log(f"------ 日志保存至 {self.convert_path_to_abspath(self._log_dir)} ------")
+            else:    self.log(f"------ Output are saved in {self.convert_path_to_abspath(self._log_dir)} ------")
+        else:
+            self.separator("Finished")
+            if isZh:
+                self.log(f"开始于 {self._time_start}, 结束于 {self._time_end}")
+                self.log(f"输出文件保存至: {self.convert_path_to_abspath(self._log_dir)}")
+                self.log(f"日志信息保存至: {self._log_file}")
+            else:
+                self.log(f"Done. Start in {self._time_start}, end in {self._time_end}")
+                self.log(f"Output files are saved in {self.convert_path_to_abspath(self._log_dir)}")
+                self.log(f"Output log is saved as {self._log_file}")
         if message != "":
             if isinstance(message, str):
                 self.log(message)
@@ -82,16 +112,6 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
 
     def get_log(self):
         return self._log_dir_root, self._log_file, self._time_start, self.name
-
-    def set_log(self, log_info:tuple):
-        self._log_dir_root = log_info[0]
-        self._log_file = log_info[1]
-        self._time_start = log_info[2]
-        self.name = log_info[3]
-        if self._multipleFiles:
-            self._log_dir = self.join(self._log_dir_root, self._time_start)
-        else:
-            self._log_dir = self._log_dir_root
 
     def log(self, content, logTime:bool=True, level:str="message", logWhenDone:bool=False) -> str:
         time_current = self.get_time()
@@ -125,10 +145,6 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
             self.log(f"{message}{content}")
         return content
 
-    def separator(self, message:str) -> None:
-        self.log(f"")
-        self.log(f"---------- {message} ----------")
-
     def raise_error(self, message:str, statue_code:int=-1) -> None:
         """
         Logs an error message and exits the program with a status code.
@@ -140,26 +156,19 @@ class BaseModel(CommandBase, CsvLikeBase, SystemBase, UnitBase, TimeBase, TypeBa
         self.log(message, level="error")
         self.exit(statue_code)
 
-    def begining(self, message="", isZh:bool=False) -> None:
-        self.log("---------------")
-        if isZh:
-            self.log(f"开始于{self._time_start}")
-            self.log(f"输出文件保存至{self.convert_path_to_abspath(self._log_dir)}")
-            self.log(f"日志信息保存至{self._log_file}")
+    def separator(self, message:str) -> None:
+        self.log(f"")
+        self.log(f"---------- {message} ----------")
+
+    def set_log(self, log_info:tuple):
+        self._log_dir_root = log_info[0]
+        self._log_file = log_info[1]
+        self._time_start = log_info[2]
+        self.name = log_info[3]
+        if self._multipleFiles:
+            self._log_dir = self.join(self._log_dir_root, self._time_start)
         else:
-            self.log(f"Start in {self._time_start}")
-            self.log(f"Output files are saved in {self.convert_path_to_abspath(self._log_dir)}")
-            self.log(f"Output log is saved as {self._log_file}")
-        if message != "":
-            if isinstance(message, str):
-                self.log(message)
-            elif isinstance(message, list):
-                for msg in message:
-                    self.log(msg)
-            else:
-                self.log(str(message))
-        for msg in self._done_msg:
-            self.log(msg)
+            self._log_dir = self._log_dir_root
 
     def warning(self, message:str) -> None:
         self.log(message, level="warning")

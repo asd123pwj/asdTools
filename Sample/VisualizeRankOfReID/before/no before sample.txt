@@ -1,0 +1,31 @@
+if __name__ == "__main__":
+    # All you need is place the codes before evaluate(distmat, ...) in test()
+    
+    # ---------- Sample 1 ----------
+    """ When specify log_dir
+    
+def test_prcc(model, queryloader_same, queryloader_diff, galleryloader, dataset):
+    logger = logging.getLogger('reid.test')
+    ...
+
+    from asdTools.Tools.Image.VisualizeRankOfReID import VisualizeRankOfReID
+    rank_vis = VisualizeRankOfReID()
+    log_dir = rank_vis.get_loggingLogger_path(logger)
+    log_dir = rank_vis.join(log_dir, "Rank Visualization")
+    VisualizeRankOfReID(log_dir=log_dir)(distmat_diff, queryloader_diff, galleryloader)
+    
+    logger.info("Computing CMC and mAP for the same clothes setting")
+    cmc, mAP = evaluate(distmat_same, qs_pids, g_pids, qs_camids, g_camids)
+    """
+
+    # ---------- Sample 2 ----------
+    """ Just visualization
+    
+def test_prcc(model, queryloader_same, queryloader_diff, galleryloader, dataset):
+
+    from asdTools.Tools.Image.VisualizeRankOfReID import VisualizeRankOfReID
+    VisualizeRankOfReID()(distmat_diff, queryloader_diff, galleryloader)
+    
+    logger.info("Computing CMC and mAP for the same clothes setting")
+    cmc, mAP = evaluate(distmat_same, qs_pids, g_pids, qs_camids, g_camids)
+    """

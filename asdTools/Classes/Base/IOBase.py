@@ -125,6 +125,15 @@ class IOBase(RewriteBase):
         _, ext = os.path.splitext(file_name)
         return ext[1:]
 
+    def get_loggingLogger_path(self, logger, needDir:bool=True) -> str:
+        import logging
+        handlers = logger.handlers
+        for handler in handlers:
+            if isinstance(handler, logging.FileHandler):
+                return self.get_dir_of_file(handler.baseFilename) if needDir else handler.baseFilename
+        logger = logger.parent
+        return self.get_loggingLogger_path(logger, needDir)
+
     def get_name_of_files(self, files:list, keepExt:bool=False) -> list:
         res = []
         for file in files:
