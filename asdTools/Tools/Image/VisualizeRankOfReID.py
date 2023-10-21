@@ -33,12 +33,12 @@ class VisualizeRankOfReID(BaseModel):
         index2path = ""
         # ---------- Init Guery Datainfo ----------
         g_imgs = []
-        g_pids = []
-        g_camids = []
+        g_pids = np.array([])
+        g_camids = np.array([])
         for i, data_info in enumerate(gallery_loader.dataset.dataset):
             g_imgs.append(data_info[0])
-            g_pids.append(data_info[pid_index])
-            g_camids.append(data_info[camid_index])
+            g_pids = np.append(g_pids, data_info[pid_index])
+            g_camids = np.append(g_camids, data_info[camid_index])
         # ---------- Start Visualazation ----------
         for i, data_info in enumerate(query_loader.dataset.dataset):
             # ---------- Init Query Datainfo ----------
@@ -46,16 +46,18 @@ class VisualizeRankOfReID(BaseModel):
             q_pid = data_info[pid_index]
             q_camid = data_info[camid_index]
             # ---------- Sort Rank ----------
-            distances = distmat[i]
-            sorted_indices = np.argsort(distances)
-            sorted_indices = [index for index in sorted_indices if g_camids[index] != q_camid]
-            sorted_indices = [index for index in sorted_indices if g_pids[index] != q_pid]
+            distance_indices = np.argsort(distmat[i])
+            query_index = np.argwhere(g_pids==q_pid)
+            camera_index = np.argwhere(g_camids==q_camid)
+            junk_index = np.intersect1d(query_index, camera_index)
+            mask = np.in1d(distance_indices, junk_index, invert=True)
+            sorted_indices = np.argwhere(mask==True).flatten()
             # ---------- Save Rank ----------
             # ----- map i_query to img_path of i_query
             index2path += f"{i+1}: \t {self.convert_path_to_abspath(q_img_path)} \n"
             # ----- rank gallery of i_query
             # rank gallery imgs
-            g_imgs_path = [g_imgs[index] for index in sorted_indices[:top_k]]
+            g_imgs_path = [gallery_loader.dataset.dataset[distance_indices[j]][0] for j in sorted_indices[:top_k]]
             # log imgs
             md_table = MarkdownTable(["i", "query"] + [f"top_{j+1}" for j in range(top_k)])
             row_imgs = [i + 1]
@@ -65,7 +67,7 @@ class VisualizeRankOfReID(BaseModel):
             # log id
             row_ID = ["data info"]
             row_ID.append(data_info[1:])
-            row_ID.extend([gallery_loader.dataset.dataset[j][1:] for j in sorted_indices[:top_k]])
+            row_ID.extend([gallery_loader.dataset.dataset[distance_indices[j]][1:] for j in sorted_indices[:top_k]])
             md_table.add_row(row_ID)
             # save markdown table
             md_table_path = self.generate_output_path(output_middle_dir=self._time_start, output_file=f"{i+1}-rank_table.md")
