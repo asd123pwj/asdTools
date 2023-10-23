@@ -1,0 +1,10 @@
+index, good ratio, pid, camid, info[3], path 
+1,30%,1,2,1, F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\C\001\cropped_rgb001.jpg 
+2,30%,1,2,1, F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\C\001\cropped_rgb004.jpg 
+3,50%,1,2,1, F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\C\001\cropped_rgb007.jpg 
+4,10%,1,2,1, F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\C\001\cropped_rgb010.jpg 
+...,,,,,
+3540,100%,328,2,141, F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\C\328\cropped_rgb064.jpg 
+3541,100%,328,2,141, F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\C\328\cropped_rgb067.jpg 
+3542,100%,328,2,141, F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\C\328\cropped_rgb070.jpg 
+3543,100%,328,2,141, F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\C\328\cropped_rgb073.jpg 

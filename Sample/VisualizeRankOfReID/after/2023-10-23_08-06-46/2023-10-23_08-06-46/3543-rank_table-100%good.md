@@ -1,0 +1,6 @@
+| i | query | top_1 | top_2 | top_3 | top_4 | top_5 | top_6 | top_7 | top_8 | top_9 | top_10 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 3543 | ![cropped_rgb073.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\C\328\cropped_rgb073.jpg) | ![cropped_rgb055.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb055.jpg) | ![cropped_rgb058.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb058.jpg) | ![cropped_rgb052.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb052.jpg) | ![cropped_rgb040.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb040.jpg) | ![cropped_rgb046.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb046.jpg) | ![cropped_rgb004.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb004.jpg) | ![cropped_rgb001.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb001.jpg) | ![cropped_rgb019.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb019.jpg) | ![cropped_rgb022.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb022.jpg) | ![cropped_rgb073.jpg](F:\0_DATA\1_DATA\Datasets\PRCC\rgb\test\A\328\cropped_rgb073.jpg) |
+| pid | 328 | 328 | 328 | 328 | 328 | 328 | 328 | 328 | 328 | 328 | 328 |
+| camid | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| info[3] | 141 | 140 | 140 | 140 | 140 | 140 | 140 | 140 | 140 | 140 | 140 |
