@@ -91,6 +91,19 @@ class IOBase(RewriteBase):
         elif root != "":
             dir_name = dir_name[len(root)+1:]
         return dir_name
+    
+    def get_hierarchy_of_file(self, path:str) -> list:
+        _path = path
+        hierarchy = []
+        while True:
+            _path, folder = os.path.split(_path)
+            if folder:
+                hierarchy.insert(0, folder)
+            else:
+                if _path:
+                    hierarchy.insert(0, _path)
+                break
+        return hierarchy
 
     def get_name_of_file(self, path:str, keepExt:bool=False) -> str:
         """
@@ -239,10 +252,14 @@ class IOBase(RewriteBase):
             content = json.load(f)
         return content
 
-    def read_txt(self, path:str) -> str:
+    def read_txt(self, path:str, asLine:bool=True) :
         with open(path, "r", encoding="utf8") as f:
             content = f.readlines()
-            content = "".join(content)
+            if asLine:
+                content = "".join(content)
+            else:
+                # remove "\n"
+                content = [x.rstrip("\n") for x in content]
         return content
 
     def read_html(self, path:str) -> str:
