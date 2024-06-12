@@ -8,10 +8,15 @@ class ImageBase(BaseModel):
         super().__init__(**kwargs)
 
     def blend(self, img1:Image.Image, img2:Image.Image, ratio:float):
+        # v0.0.13e: fix bug from different img mode.
         isTmp_img1 = True if isinstance(img1, str) else False
         isTmp_img2 = True if isinstance(img2, str) else False
         img1 = self.read_img(img1)
         img2 = self.read_img(img2)
+        if img1.mode != 'RGB':
+            img1 = img1.convert('RGB')
+        if img2.mode != 'RGB':
+            img2 = img2.convert('RGB')
         res = Image.blend(img1, img2, ratio)
         if isTmp_img1:
             img1.close()
@@ -20,6 +25,8 @@ class ImageBase(BaseModel):
         return res
 
     def convert_img_to_arr(self, img:Image.Image) -> np.ndarray:
+        # Image: (Width, Height).
+        # Array: (Height, Width, Channel).
         img_array = np.array(img)
         return img_array
     
@@ -33,6 +40,13 @@ class ImageBase(BaseModel):
             gray_img = gray_img.convert('RGB')
         return gray_img
 
+    def convert_fileSuffix(self, file_path:str, source_suffixs:list, target_suffix:str):
+        for suffix in source_suffixs:
+            if file_path.endswith(suffix):
+                file_path_new = file_path[:-len(suffix)] + target_suffix
+                return file_path_new
+        return file_path
+        
     def count_img_color(self, img:Image.Image) -> set:
         _img = self.read_img(img)
         unique_color = _img.getcolors(_img.size[0] * _img.size[1])

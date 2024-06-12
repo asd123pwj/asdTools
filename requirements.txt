@@ -1,8 +1,8 @@
-gitignore-parser
-beautifulsoup4
-nvidia-ml-py
-python-docx
-html2text
-requests
-Pillow
-py2pdf
+# gitignore-parser
+# beautifulsoup4
+# nvidia-ml-py
+# python-docx
+# html2text
+# requests
+# Pillow
+# py2pdf

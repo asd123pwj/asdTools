@@ -8,7 +8,8 @@ class ColorGT(ImageBase):
     """
     def __init__(self, **kwargs) -> None:
         super().__init__(multipleFiles=True, **kwargs)
-        self.ade20k_color = ((120, 120, 120), (180, 120, 120), (6, 230, 230), (80, 50, 50),
+        self.ade20k_color = ((0, 0, 0),
+                             (120, 120, 120), (180, 120, 120), (6, 230, 230), (80, 50, 50),
                              (4, 200, 3), (120, 120, 80), (140, 140, 140), (204, 5, 255),
                              (230, 230, 230), (4, 250, 7), (224, 5, 255), (235, 255, 7),
                              (150, 5, 61), (120, 120, 70), (8, 255, 51), (255, 6, 82),
@@ -51,6 +52,7 @@ class ColorGT(ImageBase):
         return self.run(imgs_dir, mapping_path)
 
     def run(self, imgs_dir:str="", mapping_path:str="") -> list:
+        # v0.0.13e: fix bug from shape: np.array (H, W, C) and Image.Image (W, H)
         if imgs_dir == "":
             imgs_dir = self.input("Input folder path:", needLog=True)
         imgs_path = self.get_paths_from_dir(imgs_dir)
@@ -95,7 +97,7 @@ class ColorGT(ImageBase):
         for k, img_path in enumerate(imgs_path):
             img_array = self.read_img(img_path, "array")
             if generateRGB:
-                img_res = self.generate_image("RGB", (img_array.shape[0], img_array.shape[1]))
+                img_res = self.generate_image("RGB", (img_array.shape[1], img_array.shape[0]))
                 img_res = self.read_img(img_res, "array")
             else:
                 img_res = self.generate_image("L", (img_array.shape[0], img_array.shape[1]))
@@ -124,9 +126,12 @@ class ColorGT(ImageBase):
         
 
 if __name__ == "__main__":
-    mapping_path = r"Sample\ColorGT\Sample1_withMapping\before\color_mapping.json"
-    imgs_dir = r"Sample\ColorGT\Sample1_withMapping\before"
-    ColorGT()(imgs_dir, mapping_path=mapping_path)
+    # mapping_path = r"Sample\ColorGT\Sample1_withMapping\before\color_mapping.json"
+    # imgs_dir = r"Sample\ColorGT\Sample1_withMapping\before"
+    # ColorGT()(imgs_dir, mapping_path=mapping_path)
 
-    imgs_dir = r"Sample\ColorGT\Sample2_withoutMapping\before"
+    # imgs_dir = r"Sample\ColorGT\Sample2_withoutMapping\before"
+    # ColorGT()(imgs_dir)
+    
+    imgs_dir = r"F:\0_DATA\1_DATA\Datasets\ADE20K\ADEChallengeData2016\annotations"
     ColorGT()(imgs_dir)
