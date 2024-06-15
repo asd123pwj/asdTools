@@ -24,7 +24,7 @@ class ColorImgWithGT(ImageBase):
 
 
     def run(self, imgs_dir:str, GTs_dir:str) -> str:
-        # v0.0.13e: add fault-tolerant for different suffix.
+        # v0.0.14: add fault-tolerant for different suffix.
         imgs_path = self.get_paths_from_dir(imgs_dir)
         imgs_path_originalSuffix = self.filter_ext(imgs_path, ["png", "jpg", "jpeg"])
         imgs_path_mapping_originalSuffix = self.map_paths_to_fullPaths(imgs_dir, imgs_path_originalSuffix)
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     # Converter = ColorImgWithGT()
     # Converter(imgs_dir, GTs_dir)
 
-    imgs_dir = r"F:\0_DATA\1_DATA\Datasets\ADE20K\ADEChallengeData2016\images"
-    GTs_dir = r"F:\0_DATA\1_DATA\Datasets\ADE20K\ColorGT"
+    imgs_dir = r"F:\0_DATA\1_DATA\Datasets\TTPLA\images\train"
+    GTs_dir = r"F:\0_DATA\1_DATA\Datasets\TTPLA\annotations\train"
     Converter = ColorImgWithGT()
     Converter(imgs_dir, GTs_dir)

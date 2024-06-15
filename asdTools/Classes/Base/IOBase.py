@@ -338,10 +338,13 @@ class IOBase(RewriteBase):
         - bool: True if the path has a valid extension and allow is True, or if the path does not have a valid extension and allow is False. False otherwise.
 
         """
+        # v0.0.14: add support for ".suffix".
         _, file_name = os.path.split(path)
         _, ext = os.path.splitext(file_name)
-        ext = ext[1:]
+        # ext = ext[1:]
         if ext in ext_list:
+            return True if allow else False
+        elif ext[1:] in ext_list:
             return True if allow else False
         else:
             return False if allow else True
@@ -400,3 +403,18 @@ class IOBase(RewriteBase):
             if self.check_size(file, max_size, unit, allow):
                 res.append(file)
         return res
+    
+    def sort_files_size(self, files:list, reverse:bool=False) -> list:
+        """
+        Sorts a list of file paths based on their sizes.
+
+        Args:
+        - files (list): A list of file paths to sort.
+        - reverse (bool): A boolean flag indicating whether to sort in descending order. Default is False.
+
+        Returns:
+        - list: A sorted list of file paths based on their sizes.
+
+        """
+        sort_files = sorted(files, key=lambda x: os.path.getsize(x), reverse=reverse)
+        return sort_files

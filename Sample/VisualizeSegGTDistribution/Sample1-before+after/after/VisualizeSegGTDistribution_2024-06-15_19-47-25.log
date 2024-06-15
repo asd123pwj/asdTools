@@ -1,0 +1,56 @@
+2024-06-15 19:47:25: 40 files in Sample\VisualizeGTDistribution\Sample1-before+after\before.
+2024-06-15 19:47:25: 40 images in Sample\VisualizeGTDistribution\Sample1-before+after\before.
+2024-06-15 19:47:25: Number of classes: 5.
+2024-06-15 19:47:25: Device: cuda
+2024-06-15 19:47:27: 1/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\1000_00527.png
+2024-06-15 19:47:27: 2/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\112_165.png
+2024-06-15 19:47:27: 3/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\113_1350.png
+2024-06-15 19:47:27: 4/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\11_4830.png
+2024-06-15 19:47:27: 5/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\13_00716.png
+2024-06-15 19:47:27: 6/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\14_01171.png
+2024-06-15 19:47:27: 7/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\16_3720.png
+2024-06-15 19:47:27: 8/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\16_4500.png
+2024-06-15 19:47:27: 9/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\18_00362.png
+2024-06-15 19:47:27: 10/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\20_2100.png
+2024-06-15 19:47:27: 11/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\20_7215.png
+2024-06-15 19:47:27: 12/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\26_2850.png
+2024-06-15 19:47:27: 13/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\29_00079.png
+2024-06-15 19:47:27: 14/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\31_4830.png
+2024-06-15 19:47:27: 15/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\33_00383.png
+2024-06-15 19:47:27: 16/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\36_00168.png
+2024-06-15 19:47:27: 17/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\38_00991.png
+2024-06-15 19:47:27: 18/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\41_00001.png
+2024-06-15 19:47:27: 19/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\41_00441.png
+2024-06-15 19:47:27: 20/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\41_01471.png
+2024-06-15 19:47:27: 21/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\42_00471.png
+2024-06-15 19:47:27: 22/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\43_00591.png
+2024-06-15 19:47:27: 23/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\44_00081.png
+2024-06-15 19:47:27: 24/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\44_01221.png
+2024-06-15 19:47:27: 25/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\52_00236.png
+2024-06-15 19:47:27: 26/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\53_00191.png
+2024-06-15 19:47:27: 27/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\54_00351.png
+2024-06-15 19:47:27: 28/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\58_00081.png
+2024-06-15 19:47:27: 29/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\59_01151.png
+2024-06-15 19:47:27: 30/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\59_01191.png
+2024-06-15 19:47:27: 31/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\59_02456.png
+2024-06-15 19:47:27: 32/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\61_00151.png
+2024-06-15 19:47:27: 33/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\63_01871.png
+2024-06-15 19:47:27: 34/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\68_00501.png
+2024-06-15 19:47:27: 35/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\70_00196.png
+2024-06-15 19:47:27: 36/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\71_9160.png
+2024-06-15 19:47:27: 37/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\7_00378.png
+2024-06-15 19:47:27: 38/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\8_00426.png
+2024-06-15 19:47:27: 39/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\91_2220.png
+2024-06-15 19:47:27: 40/40: Get GT distribution for Sample\VisualizeGTDistribution\Sample1-before+after\before\train\9_00349.png
+2024-06-15 19:47:27: 1/5: Save GT distribution of class-0 to Logs\VisualizeSegGTDistribution\2024-06-15_19-47-25\class-0.png
+2024-06-15 19:47:27: 2/5: Save GT distribution of class-1 to Logs\VisualizeSegGTDistribution\2024-06-15_19-47-25\class-1.png
+2024-06-15 19:47:27: 3/5: Save GT distribution of class-2 to Logs\VisualizeSegGTDistribution\2024-06-15_19-47-25\class-2.png
+2024-06-15 19:47:27: 4/5: Save GT distribution of class-3 to Logs\VisualizeSegGTDistribution\2024-06-15_19-47-25\class-3.png
+2024-06-15 19:47:27: 5/5: Save GT distribution of class-4 to Logs\VisualizeSegGTDistribution\2024-06-15_19-47-25\class-4.png
+2024-06-15 19:47:27: Warning: Did not match to the appropriate type, forced to write to the file in Logs\VisualizeSegGTDistribution\2024-06-15_19-47-25\GT_infos.json, please check
+2024-06-15 19:47:27: GT infos saved to Logs\VisualizeSegGTDistribution\2024-06-15_19-47-25\GT_infos.json
+2024-06-15 19:47:27: 
+2024-06-15 19:47:27: ---------- Finished ----------
+2024-06-15 19:47:27: Done. Start in 2024-06-15_19-47-25, end in 2024-06-15_19-47-27
+2024-06-15 19:47:27: Output files are saved in f:\0_DATA\1_DATA\CODE\PYTHON\0_asdTools\asdTools\Logs\VisualizeSegGTDistribution\2024-06-15_19-47-25
+2024-06-15 19:47:27: Output log is saved as VisualizeSegGTDistribution_2024-06-15_19-47-25.log

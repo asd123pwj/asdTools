@@ -53,6 +53,8 @@
    * 可视化热力图，测试于ReID。
 7. VisualizeRankOfReID - 调用示例
    * 可视化ReID Rank，使用markdown表格，极快。
+8. VisualizeSegGTDistribution - 调用示例
+   * 可视化语义分割GT的分布情况。
 
 #### 爬虫工具支持
 

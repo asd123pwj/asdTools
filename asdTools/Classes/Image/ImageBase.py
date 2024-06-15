@@ -8,7 +8,7 @@ class ImageBase(BaseModel):
         super().__init__(**kwargs)
 
     def blend(self, img1:Image.Image, img2:Image.Image, ratio:float):
-        # v0.0.13e: fix bug from different img mode.
+        # v0.0.14: fix bug from different img mode.
         isTmp_img1 = True if isinstance(img1, str) else False
         isTmp_img2 = True if isinstance(img2, str) else False
         img1 = self.read_img(img1)
@@ -80,7 +80,8 @@ class ImageBase(BaseModel):
         img = img.resize(size)
         return img
 
-    def read_img(self, path, output_type="Image"):
+    def read_img(self, path, output_type:str="Image", h:int=-1, w:int=-1):
+        # v0.0.14: add support to resize img.
         if isinstance(path, str):
             with Image.open(path) as f:
                 img = f
@@ -90,9 +91,12 @@ class ImageBase(BaseModel):
         elif isinstance(path, np.ndarray):
             img = self.convert_arr_to_img(path)
         
-        if output_type == "Image":
+        if h != -1 and w != -1:
+            img = img.resize((w, h), Image.NEAREST)
+
+        if output_type == "Image" or output_type == "image":
             return img
-        elif output_type == "array":
+        elif output_type == "Array" or output_type == "array":
             img_array = self.convert_img_to_arr(img)
             img.close()
             return img_array

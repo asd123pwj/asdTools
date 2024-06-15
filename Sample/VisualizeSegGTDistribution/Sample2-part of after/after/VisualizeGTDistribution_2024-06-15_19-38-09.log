@@ -1,0 +1,21 @@
+2024-06-15 19:38:09: 20210 files in F:\0_DATA\1_DATA\Datasets\ADE20K\ADEChallengeData2016\annotations\training.
+2024-06-15 19:38:09: 20210 images in F:\0_DATA\1_DATA\Datasets\ADE20K\ADEChallengeData2016\annotations\training.
+2024-06-15 19:38:35: Number of classes: 151.
+2024-06-15 19:38:35: Device: cuda
+2024-06-15 19:38:37: 1/20210: Get GT distribution for F:\0_DATA\1_DATA\Datasets\ADE20K\ADEChallengeData2016\annotations\training\ADE_train_00000001.png
+2024-06-15 19:38:37: 2/20210: Get GT distribution for F:\0_DATA\1_DATA\Datasets\ADE20K\ADEChallengeData2016\annotations\training\ADE_train_00000002.png
+...
+2024-06-15 19:39:51: 20209/20210: Get GT distribution for F:\0_DATA\1_DATA\Datasets\ADE20K\ADEChallengeData2016\annotations\training\ADE_train_00020209.png
+2024-06-15 19:39:51: 20210/20210: Get GT distribution for F:\0_DATA\1_DATA\Datasets\ADE20K\ADEChallengeData2016\annotations\training\ADE_train_00020210.png
+2024-06-15 19:39:52: 1/151: Save GT distribution of class-0 to Logs\VisualizeGTDistribution\2024-06-15_19-38-09\class-0.png
+2024-06-15 19:39:52: 2/151: Save GT distribution of class-1 to Logs\VisualizeGTDistribution\2024-06-15_19-38-09\class-1.png
+...
+2024-06-15 19:39:58: 150/151: Save GT distribution of class-149 to Logs\VisualizeGTDistribution\2024-06-15_19-38-09\class-149.png
+2024-06-15 19:39:58: 151/151: Save GT distribution of class-150 to Logs\VisualizeGTDistribution\2024-06-15_19-38-09\class-150.png
+2024-06-15 19:39:58: Warning: Did not match to the appropriate type, forced to write to the file in Logs\VisualizeGTDistribution\2024-06-15_19-38-09\GT_infos.json, please check
+2024-06-15 19:39:58: GT infos saved to Logs\VisualizeGTDistribution\2024-06-15_19-38-09\GT_infos.json
+2024-06-15 19:39:58: 
+2024-06-15 19:39:58: ---------- Finished ----------
+2024-06-15 19:39:58: Done. Start in 2024-06-15_19-38-09, end in 2024-06-15_19-39-58
+2024-06-15 19:39:58: Output files are saved in f:\0_DATA\1_DATA\CODE\PYTHON\0_asdTools\asdTools\Logs\VisualizeGTDistribution\2024-06-15_19-38-09
+2024-06-15 19:39:58: Output log is saved as VisualizeGTDistribution_2024-06-15_19-38-09.log

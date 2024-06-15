@@ -3,6 +3,7 @@ from asdTools.Classes.Tool.GitIgnore import GitIgnore
 
 
 class SaveExpData(BaseModel):
+    # before use: pip install gitignore-parser
     def __init__(self, exp_dir:str="", max_size:float=0, unit:str="MB", gitignore:str="", ext_exclude:list=[], **kwargs) -> None:
         super().__init__(multipleFiles=True, **kwargs)
         self.exp_dir = exp_dir
@@ -53,7 +54,8 @@ class SaveExpData(BaseModel):
 if __name__ == "__main__":
     # 因为仅复制小文件，因此可以先将max_size设小，根据日志中的大文件信息来逐步调整，以获得更好的保存效果。
     # Since only small files are being copied, you can start by setting the max_size to a small value and gradually adjust it based on the information about large files in the logs to achieve better storage efficiency.
-
+    # before use: pip install gitignore-parser
+    
     """
     max_size:       小于max_size的文件将被保留
                     the file small than max_size will be preserved.

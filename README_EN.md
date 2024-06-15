@@ -48,6 +48,7 @@
 11. SaveExpData - Exclude useless files and save experiments data.
 12. VisualizeHeatmapOfReID - Visualize heatmap.
 13. VisualizeRankOfReID - Visualize ReID Rank, very fast。
+14. VisualizeSegGTDistribution - Visualize GT distribution of semantic segmentation.
 
 ## Update History
 
@@ -65,6 +66,7 @@
 - 2023/08/30 - V0.0.11: Implement to save experiments data while excluding useless files.
 - 2023/09/30 - V0.0.12: Implement to visualize heatmap.
 - 2023/10/08 - V0.0.13: Implement to visualize ReID rank.
+- 2024/06/15 - V0.0.14: Implement to visualize GT distribution of semantic segmentation.
 
 #### Old Version Code
 

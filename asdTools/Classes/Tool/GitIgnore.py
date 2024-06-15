@@ -5,6 +5,7 @@ import os
 
 
 class GitIgnore():
+    # before use: pip install gitignore-parser
     # 感谢mherrmann实现的gitignore_parser，但它的效果有点不好，这里做了一点改进，但是还有部分问题无法解决
     # 请注意核对结果！
     # Thanks to mherrmann for implementing gitignore_parser, but its effectiveness is not ideal. Some improvements have been made here, but there are still some issues that cannot be resolved.

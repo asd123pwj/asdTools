@@ -48,6 +48,7 @@
 11. SaveExpData - 排除无用文件，保存实验数据。
 12. VisualizeHeatmapOfReID - 可视化热力图。
 13. VisualizeRankOfReID - 可视化ReID Rank，极快。
+14. VisualizeSegGTDistribution - 可视化语义分割GT分布。
 
 ## 更新历史
 
@@ -65,6 +66,7 @@
 - 2023/08/30 - V0.0.11: 实现实验数据保存。
 - 2023/09/30 - V0.0.12: 实现热力图可视化。
 - 2023/10/08 - V0.0.13: 实现ReID Rank可视化。
+- 2024/06/15 - V0.0.14: 实现语义分割GT分布可视化。
 
 #### 旧版代码
 

@@ -51,6 +51,8 @@
    * Visualize heatmap, only test in ReID.
 7. VisualizeRankOfReID - Call example
    * Visualize ReID rank, very fast by markdown table
+8. VisualizeSegGTDistribution - Call example
+   1. Visualize GT distribution of semantic segmentation.
 
 #### Spider Tool Support
 

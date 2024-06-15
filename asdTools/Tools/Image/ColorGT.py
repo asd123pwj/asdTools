@@ -52,7 +52,7 @@ class ColorGT(ImageBase):
         return self.run(imgs_dir, mapping_path)
 
     def run(self, imgs_dir:str="", mapping_path:str="") -> list:
-        # v0.0.13e: fix bug from shape: np.array (H, W, C) and Image.Image (W, H)
+        # v0.0.14: fix bug from shape: np.array (H, W, C) and Image.Image (W, H)
         if imgs_dir == "":
             imgs_dir = self.input("Input folder path:", needLog=True)
         imgs_path = self.get_paths_from_dir(imgs_dir)
@@ -133,5 +133,5 @@ if __name__ == "__main__":
     # imgs_dir = r"Sample\ColorGT\Sample2_withoutMapping\before"
     # ColorGT()(imgs_dir)
     
-    imgs_dir = r"F:\0_DATA\1_DATA\Datasets\ADE20K\ADEChallengeData2016\annotations"
+    imgs_dir = r"F:\0_DATA\1_DATA\Datasets\TTPLA\annotations\train"
     ColorGT()(imgs_dir)
