@@ -47,6 +47,19 @@ class ImageBase(BaseModel):
                 return file_path_new
         return file_path
         
+    def convert_numpyType_to_builtinType(self, obj):
+        # Thanks to ChatGPT.
+        if isinstance(obj, dict):
+            return {k: self.convert_numpyType_to_builtinType(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self.convert_numpyType_to_builtinType(i) for i in obj]
+        elif isinstance(obj, (np.float32, np.float64)):
+            return float(obj)
+        elif isinstance(obj, (np.int32, np.int64)):
+            return int(obj)
+        else:
+            return obj
+
     def count_img_color(self, img:Image.Image) -> set:
         _img = self.read_img(img)
         unique_color = _img.getcolors(_img.size[0] * _img.size[1])

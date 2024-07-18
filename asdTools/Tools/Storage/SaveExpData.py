@@ -5,7 +5,7 @@ from asdTools.Classes.Tool.GitIgnore import GitIgnore
 class SaveExpData(BaseModel):
     # before use: pip install gitignore-parser
     def __init__(self, exp_dir:str="", max_size:float=0, unit:str="MB", gitignore:str="", ext_exclude:list=[], **kwargs) -> None:
-        super().__init__(multipleFiles=True, **kwargs)
+        super().__init__(**kwargs)
         self.exp_dir = exp_dir
         self.max_size = max_size
         self.unit = unit

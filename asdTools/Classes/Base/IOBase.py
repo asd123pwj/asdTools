@@ -1,7 +1,9 @@
 from asdTools.Classes.Base.RewriteBase import RewriteBase
+import traceback
 import hashlib
 import shutil
 import json
+import sys
 import os
 
 
@@ -228,6 +230,7 @@ class IOBase(RewriteBase):
                   content, 
                   log_path:str="./Logs/log.txt",
                   mode:str='w') -> str:
+        # v0.0.14b: support warning exception.
         log_dir = self.get_dir_of_file(log_path)
         self.mkdir(log_dir)
         with open(log_path, mode, encoding='utf8') as f:
@@ -241,10 +244,16 @@ class IOBase(RewriteBase):
                 else:
                     content_new = str(content)
                     f.write(content_new)
-            except:
+            except Exception as e:
                 content_new = str(content)
                 f.write(content_new)
-                self.warning(f"Did not match to the appropriate type, forced to write to the file in {log_path}, please check")
+                self.warning(f"Did not match to the appropriate type, forced to write to the file in {log_path}, please check.")
+                exc_type, exc_value, exc_traceback = sys.exc_info()
+                self.warning(f"Exception type: {exc_type}")
+                self.warning(f"Exception value: {exc_value}")
+                traceback.print_tb(exc_traceback)
+                traceback_str = ''.join(traceback.format_exception(exc_type, exc_value, exc_traceback))
+                self.warning(f"Trackback details:\n{traceback_str}")
         return log_path
 
     def read_json(self, path:str) -> dict:

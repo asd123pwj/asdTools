@@ -7,6 +7,7 @@ class GPUMonitor(BaseModel):
     """
     Monitor available GPUs on NVIDIA GPUs.
     """
+    # v0.0.14b: fix a bug for multiple gpu search.
     def __init__(self, 
                  capacity_thres:float=0, 
                  output_type:str="list", 
@@ -120,7 +121,7 @@ class GPUMonitor(BaseModel):
                     result = gpus_available
                 elif output_type == "str":
                     try:
-                        result = ",".join(gpus_available)
+                        result = ",".join(map(str, gpus_available))
                     except:
                         result = str(gpus_available[0])
                 else:

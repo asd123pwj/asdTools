@@ -1,3 +1,42 @@
 {
-  "0": {
-    "max count in single pixel": {'0': {'max count in single pixel': 40.0, 'min count in single pixel': 32.0, 'sum of pixel': 10160446.0}, '1': {'max count in single pixel': 6.0, 'min count in single pixel': 0.0, 'sum of pixel': 175489.0}, '2': {'max count in single pixel': 2.0, 'min count in single pixel': 0.0, 'sum of pixel': 91074.0}, '3': {'max count in single pixel': 1.0, 'min count in single pixel': 0.0, 'sum of pixel': 41702.0}, '4': {'max count in single pixel': 2.0, 'min count in single pixel': 0.0, 'sum of pixel': 17049.0}}
+  "class-000": {
+    "average GT pixel of a img": 254011,
+    "average GT pixel of a img (%)": 96.8975,
+    "max count in single pixel": 40,
+    "min count in single pixel": 32,
+    "number of GT imgs": 40,
+    "sum of pixel": 10160446
+  },
+  "class-001": {
+    "average GT pixel of a img": 4499,
+    "average GT pixel of a img (%)": 1.7162,
+    "max count in single pixel": 6,
+    "min count in single pixel": 0,
+    "number of GT imgs": 39,
+    "sum of pixel": 175489
+  },
+  "class-002": {
+    "average GT pixel of a img": 22768,
+    "average GT pixel of a img (%)": 8.6853,
+    "max count in single pixel": 2,
+    "min count in single pixel": 0,
+    "number of GT imgs": 4,
+    "sum of pixel": 91074
+  },
+  "class-003": {
+    "average GT pixel of a img": 41702,
+    "average GT pixel of a img (%)": 15.9081,
+    "max count in single pixel": 1,
+    "min count in single pixel": 0,
+    "number of GT imgs": 1,
+    "sum of pixel": 41702
+  },
+  "class-004": {
+    "average GT pixel of a img": 4262,
+    "average GT pixel of a img (%)": 1.6258,
+    "max count in single pixel": 2,
+    "min count in single pixel": 0,
+    "number of GT imgs": 4,
+    "sum of pixel": 17049
+  }
+}
